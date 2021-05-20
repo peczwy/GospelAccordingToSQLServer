@@ -4,7 +4,7 @@
       <v-list dense>
         <v-list-item v-for="(option, index) in options" :key="index" @click="selectedIndex = index">
           <v-list-item-action>
-            <v-icon>{{option.icon}}</v-icon>
+			<font-awesome-icon :icon="['fas', option.icon]" />
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>{{option.name}}</v-list-item-title>
@@ -47,10 +47,10 @@ export default {
   data: () => ({
     drawer: null,
     options: [
-      {name: 'About Me', icon: 'fa-skull'},
-      {name: 'According To Devs', icon: 'fa-user-graduate'},
-      {name: 'According To Ops', icon: 'fa-user-graduate'},
-      {name: 'One Important Thought', icon: 'fa-search'},
+      {name: 'About Me', icon: 'skull'},
+      {name: 'According To Devs', icon: 'search'},
+      {name: 'According To Ops', icon: 'search'},
+      {name: 'One Important Thought', icon: 'exclamation'},
     ],
     selectedIndex: 0
    }),
