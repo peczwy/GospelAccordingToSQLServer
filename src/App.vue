@@ -39,25 +39,25 @@ import Developers from './components/Developers/Developers';
 import Operations from './components/Operations/Operations';
 
 export default {
-  name: 'App',
+	name: 'App',
 
-  components: {
-    About, Developers, Operations, Thought,
-  },
-  data: () => ({
-    drawer: null,
-    options: [
-      {name: 'About Me', icon: 'skull'},
-      {name: 'According To Devs', icon: 'search'},
-      {name: 'According To Ops', icon: 'search'},
-      {name: 'One Important Thought', icon: 'exclamation'},
-    ],
-    selectedIndex: 0
-   }),
-  computed:{
-    selected(){
-      return this.options[this.selectedIndex]
-    }
-  }
+	components: {
+		About, Developers, Operations, Thought,
+	},
+	data: () => ({
+		drawer: null,
+		options: [
+			{name: 'About Me', icon: 'skull'},
+			{name: 'According To Devs', icon: 'search'},
+			{name: 'According To Ops', icon: 'search'},
+			{name: 'One Important Thought', icon: 'exclamation'},
+		],
+		selectedIndex: 0
+	}),
+	computed:{
+		selected(){
+			return this.options[this.selectedIndex]
+		}
+	},
 };
 </script>
