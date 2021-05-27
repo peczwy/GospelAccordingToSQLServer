@@ -7,10 +7,16 @@
 			</v-expansion-panel-header>
 			<v-expansion-panel-content>
 				<pre><code class="language-sql">{{sql.sql}}</code></pre><br/>
-				<span class="btn btn-info text-white copy-btn ml-auto" @click.stop.prevent="copySql(i)">Copy</span>
+				<v-btn class="ma-2" outlined color="secondary" @click.stop.prevent="onCopy(i)">Copy</v-btn>
 			</v-expansion-panel-content>
 		</v-expansion-panel>
 	</v-expansion-panels>
+	<v-snackbar v-model="copySnackbar.snackbar" :timeout="copySnackbar.timeout">
+		{{ copySnackbar.text }}
+		<template v-slot:action="{ attrs }">
+		<v-btn color="blue" text v-bind="attrs" @click="copySnackbar.snackbar = false">Close</v-btn>
+		</template>
+	</v-snackbar>
   </v-container>
 </template>
 <script>
@@ -21,6 +27,11 @@ import 'prismjs/components/prism-sql'
 export default {
 	name: 'Operations',
 	data: () => ({
+		copySnackbar:{
+			snackbar: false,
+			text: 'Copied',
+			timeout: 2000,
+		},
 		sqls:[
 			{
 				title: 'Create index', 
@@ -28,31 +39,14 @@ export default {
 				sql: ['CREATE INDEX @name ON @schema.@table(@columns)'].join('\n'),
 			},
 		],
-		copySql (i) {
-			var textArea = document.createElement("textarea");
-			textArea.value = this.sqls[i].sql;
-
-			textArea.style.top = "0";
-			textArea.style.left = "0";
-			textArea.style.position = "fixed";
-
-			document.body.appendChild(textArea);
-			textArea.focus();
-			textArea.select();
-
-			try {
-				var successful = document.execCommand('copy');
-				var msg = successful ? 'successful' : 'unsuccessful';
-				console.log('Fallback: Copying text command was ' + msg);
-			} catch (err) {
-				console.error('Fallback: Oops, unable to copy', err);
-			}
-			document.body.removeChild(textArea);
-        }
 	}),
 	methods: {
 		onExpansionPanelClick() {
 			setTimeout(function(){ Prism.highlightAll(); }, 50);
+		},
+		onCopy(index){
+			this.copySql(index)
+			this.copySnackbar.snackbar = true
 		}
 	}
 }
