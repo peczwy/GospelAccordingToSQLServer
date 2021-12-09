@@ -52,6 +52,12 @@ export default {
 				text: 'SQL to find out waits', 
 				sql: getContent('./sqls/ops/waits_1.sql'),
 				source: 'https://db-berater.blogspot.com/2015/04/guid-vs-intidentity-als-clustered-key.html'
+			},
+			{
+				title: 'Size of tables', 
+				text: 'SQL to find out size of all tables', 
+				sql: getContent('./sqls/ops/size_1.sql'),
+				source: 'https://stackoverflow.com/questions/7892334/get-size-of-all-tables-in-database/7892349'
 			}
 		],
 	}),
