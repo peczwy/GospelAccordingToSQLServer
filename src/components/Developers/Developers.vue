@@ -38,6 +38,11 @@ export default {
 				text: 'SQL to create index', 
 				sql: ['CREATE INDEX @name ON @schema.@table(@columns)'].join('\n'),
 			},
+			{
+				title: 'Template: Recreate clustered index (1)', 
+				text: 'Template for the recreation of the clustered index', 
+				sql: getContent('./sqls/dev/template_recreate_clustered_index_1.sql')
+			}
 		],
 	}),
 	methods: {
