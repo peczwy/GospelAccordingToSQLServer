@@ -15,7 +15,7 @@ FROM
 	INNER JOIN sys.allocation_units a ON p.partition_id = a.container_id
 	LEFT OUTER JOIN sys.schemas s ON t.schema_id = s.schema_id
 WHERE 
-    t.NAME NOT LIKE '%' 
+    t.NAME LIKE '%' 
     AND t.is_ms_shipped = 0
     AND i.OBJECT_ID > 255 
 GROUP BY 
