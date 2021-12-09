@@ -23,6 +23,7 @@
 import Prism from 'prismjs'
 import 'prismjs/themes/prism-coy.css'
 import 'prismjs/components/prism-sql'
+import {getContent} from '../../main.js'
 
 export default {
 	name: 'Operations',
