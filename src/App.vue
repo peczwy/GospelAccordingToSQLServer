@@ -22,7 +22,8 @@
         <About v-if="selected === options[0]"/>
         <Developers v-if="selected === options[1]"/>
         <Operations v-if="selected === options[2]"/>
-        <Thought v-if="selected === options[3]"/>
+        <Posters v-if="selected === options[3]"/>
+        <Thought v-if="selected === options[4]"/>
     </v-content>
     <v-footer app>
       <v-col class="text-center caption" cols="12">
@@ -35,6 +36,7 @@
 <script>
 import About from './components/Misc/About';
 import Thought from './components/Misc/Thought';
+import Posters from './components/Misc/Posters';
 import Developers from './components/Developers/Developers';
 import Operations from './components/Operations/Operations';
 
@@ -42,7 +44,7 @@ export default {
 	name: 'App',
 
 	components: {
-		About, Developers, Operations, Thought,
+		About, Developers, Operations, Thought, Posters
 	},
 	data: () => ({
 		drawer: null,
@@ -50,6 +52,7 @@ export default {
 			{name: 'About Me', icon: 'skull'},
 			{name: 'According To Devs', icon: 'search'},
 			{name: 'According To Ops', icon: 'search'},
+			{name: 'Posters', icon: 'image'},
 			{name: 'One Important Thought', icon: 'exclamation'},
 		],
 		selectedIndex: 0
