@@ -58,6 +58,11 @@ export default {
 				text: 'SQL to find out size of all tables', 
 				sql: getContent('./sqls/ops/size_1.sql'),
 				source: 'https://stackoverflow.com/questions/7892334/get-size-of-all-tables-in-database/7892349'
+			},
+			{
+				title: 'Stats Info', 
+				text: 'SQL to find out the information about statistics', 
+				sql: getContent('./sqls/ops/stats_1.sql')
 			}
 		],
 	}),
