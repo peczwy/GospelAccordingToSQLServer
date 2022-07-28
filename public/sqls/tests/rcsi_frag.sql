@@ -70,7 +70,6 @@ D6(X) AS (SELECT 1 FROM D4 AS D CROSS JOIN D5 AS DD),
 DATASET(X) AS (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) FROM D6)
 INSERT INTO TABLE_RCSI(VAL, PAYLOAD)
 SELECT X, REPLICATE('A', @magnitude) FROM DATASET;
-GO
 
 /*
 Check the fragmentation:
@@ -85,7 +84,6 @@ SELECT
 	convert(decimal(5,2), avg_fragmentation_in_percent) as [frag%]
 FROM 
 	sys.dm_db_index_physical_stats(db_id(), object_id(N'dbo.TABLE_RC'), 1, null, 'DETAILED');
-GO
 
 SELECT 
 	'dbo.TABLE_RC_TO_RCSI' AS [table],
@@ -97,7 +95,6 @@ SELECT
 	convert(decimal(5,2), avg_fragmentation_in_percent) as [frag%]
 FROM 
 	sys.dm_db_index_physical_stats(db_id(), object_id(N'dbo.TABLE_RC_TO_RCSI'), 1, null, 'DETAILED');
-GO
 
 SELECT 
 	'dbo.TABLE_RCSI' AS [table],
@@ -109,21 +106,20 @@ SELECT
 	convert(decimal(5,2), avg_fragmentation_in_percent) as [frag%]
 FROM 
 	sys.dm_db_index_physical_stats(db_id(), object_id(N'dbo.TABLE_RCSI'), 1, null, 'DETAILED');
-GO
+
 
 /*
 Perform the actual update update:
 */
-UPDATE TABLE_RCSI SET VAL = -VAL WHERE VAL % 2 = 0;
-UPDATE TABLE_RC_TO_RCSI SET VAL = -VAL WHERE VAL % 2 = 0;
-GO
+UPDATE TABLE_RCSI SET PAYLOAD = REPLICATE('B', @magnitude) WHERE VAL % 2 = 0;
+UPDATE TABLE_RC_TO_RCSI SET PAYLOAD = REPLICATE('B', @magnitude) WHERE VAL % 2 = 0;
+
 
 ALTER DATABASE [OPTIMISTIC_TEST]
 SET READ_COMMITTED_SNAPSHOT OFF
 WITH ROLLBACK IMMEDIATE;
-GO
 
-UPDATE TABLE_RC SET VAL = -VAL WHERE VAL % 2 = 0;
+UPDATE TABLE_RC SET PAYLOAD = REPLICATE('B', @magnitude)  WHERE VAL % 2 = 0;
 GO
 
 /*
