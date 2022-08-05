@@ -80,6 +80,49 @@
 	<v-col align="center">
 		<v-img class="white--text" height="521px" width="375px"  :src="require('../../assets/posters/Easy.png')"></v-img>
 	</v-col>
+	<v-col align="center">
+		<v-img class="white--text" height="521px" width="375px"  :src="require('../../assets/posters/Blue.png')"></v-img>
+	</v-col>
+	</v-row>
+	
+	
+	<h1>Coil Saves</h1>
+	<p>
+		Failed attempt for a more baroque poster - actually original design was minimalistic, but at some point I decided to go nuts with the colors. I wanted the final result to melt the viewer eyes - and on screen it might actually does.
+		The print on the other hand... butchered the poster as it does look quite pixelated.
+	</p>
+	<v-row no-gutters>
+	<v-col align="center">
+		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Coil_Saves.png')"></v-img>
+	</v-col >
+	</v-row>
+	
+	
+	<h1><3 attack</h1>
+	<p>
+		Poster made in Hit-&-Run fashion - wife asked me if I was able to pull off one minimal poster as a wedding gift for her friend. Of course we fell out about the final design as I like monochromatic orange one, and she liked bottle green.
+		We ended up printing both ( ͡° ͜ʖ ͡°)
+	</p>
+	<v-row no-gutters>
+	<v-col align="center">
+		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Attak_1.png')"></v-img>
+	</v-col >
+	<v-col align="center">
+		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Attak_2.png')"></v-img>
+	</v-col >
+	</v-row>
+	
+	<h1>Grow Fonder</h1>
+	<p>
+		The one that grew on me for some time - yet to be printed
+	</p>
+	<v-row no-gutters>
+	<v-col align="center">
+		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Fonder_1.png')"></v-img>
+	</v-col >
+	<v-col align="center">
+		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Fonder_2.png')"></v-img>
+	</v-col >
 	</v-row>
 	
   </v-container>
