@@ -72,16 +72,16 @@
 	</p>
 	<v-row no-gutters>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Violence.png')"></v-img>
+		<v-img class="white--text" height="449px" width="300px" :src="require('../../assets/posters/Violence.png')"></v-img>
 	</v-col >
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px"  :src="require('../../assets/posters/Vanishing.png')"></v-img>
+		<v-img class="white--text" height="449px" width="300px"  :src="require('../../assets/posters/Vanishing.png')"></v-img>
 	</v-col>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px"  :src="require('../../assets/posters/Easy.png')"></v-img>
+		<v-img class="white--text" height="449px" width="300px"  :src="require('../../assets/posters/Easy.png')"></v-img>
 	</v-col>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px"  :src="require('../../assets/posters/Blue.png')"></v-img>
+		<v-img class="white--text" height="449px" width="300px"  :src="require('../../assets/posters/Blue.png')"></v-img>
 	</v-col>
 	</v-row>
 	
@@ -98,7 +98,7 @@
 	</v-row>
 	
 	
-	<h1><3 attack</h1>
+	<h1>&lt;3 attack</h1>
 	<p>
 		Poster made in Hit-&-Run fashion - wife asked me if I was able to pull off one minimal poster as a wedding gift for her friend. Of course we fell out about the final design as I like monochromatic orange one, and she liked bottle green.
 		We ended up printing both ( ͡° ͜ʖ ͡°)
