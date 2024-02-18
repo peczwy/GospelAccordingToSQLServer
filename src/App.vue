@@ -1,8 +1,19 @@
 <template>
   <v-app>
-     <v-navigation-drawer v-model="drawer" app>
+	<v-app-bar :elevation="2" color="pink" dark>
+	  <template v-slot:prepend>
+		<v-app-bar-nav-icon  variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+	  </template>
+
+	  <v-app-bar-title>{{selected.name}}</v-app-bar-title>
+	</v-app-bar>
+	
+	<v-navigation-drawer 
+		v-model="drawer" 
+        location="left"
+        temporary>
       <v-list dense>
-        <v-list-item v-for="(option, index) in options" :key="index" @click="selectedIndex = index">
+        <v-list-item v-for="(option, index) in options" :key="index" @click="selectedIndex = index" :to="option.route">
           <v-list-item-action>
 			<font-awesome-icon :icon="['fas', option.icon]" />
           </v-list-item-action>
@@ -13,57 +24,41 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="pink" dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>{{selected.name}}</v-toolbar-title>
-    </v-app-bar>
-
-    <v-content>
-        <About v-if="selected === options[0]"/>
-        <Developers v-if="selected === options[1]"/>
-        <Operations v-if="selected === options[2]"/>
-        <Tests v-if="selected === options[3]"/>
-        <Posters v-if="selected === options[4]"/>
-        <Thought v-if="selected === options[5]"/>
-    </v-content>
-    <v-footer app>
-      <v-col class="text-center caption" cols="12">
-        Copyright (c) {{ new Date().getFullYear() }} Penar Maciej. All rights reserved.
-      </v-col>
-    </v-footer>
+    <v-main>
+      <router-view />
+    </v-main>
   </v-app>
 </template>
 
+<script setup>
+  //
+</script>
+
 <script>
-import About from './components/Misc/About';
-import Thought from './components/Misc/Thought';
-import Posters from './components/Misc/Posters';
-import Developers from './components/Developers/Developers';
-import Operations from './components/Operations/Operations';
-import Tests from './components/Tests/Tests';
-
-export default {
-	name: 'App',
-
-	components: {
-		About, Developers, Operations, Tests, Thought, Posters
-	},
-	data: () => ({
-		drawer: null,
-		options: [
-			{name: 'About Me', icon: 'skull'},
-			{name: 'According To Devs', icon: 'search'},
-			{name: 'According To Ops', icon: 'search'},
-			{name: 'Experiments', icon: 'search'},
-			{name: 'Posters', icon: 'image'},
-			{name: 'One Important Thought', icon: 'exclamation'},
-		],
-		selectedIndex: 0
-	}),
+  export default {
+    data: () => ({
+      drawer: false,
+      group: null,
+	  options: [
+		{name: 'About Me', icon: 'skull', route: '/'},
+		{name: 'According To Devs', icon: 'search', route: '/developers'},
+		{name: 'According To Ops', icon: 'search', route: '/operations'},
+		{name: 'Experiments', icon: 'search', route: '/experiments'},
+		{name: 'Posters', icon: 'image', route: '/posters'},
+		{name: 'One Important Thought', icon: 'exclamation', route: '/thought'},
+	  ],
+	  selectedIndex: 0
+    }),
+    watch: {
+      group () {
+        this.drawer = false
+      },
+    },
 	computed:{
 		selected(){
 			return this.options[this.selectedIndex]
 		}
 	},
-};
+  }
 </script>
+

@@ -6,7 +6,7 @@
     <v-img
       class="white--text"
       height="200px"
-      :src="require('../../assets/me.png')">
+      src="@/assets/me.png">
 
 	<v-card-title class="align-end fill-height headline">Maciej Penar, M.Sc.Eng.</v-card-title>
 		</v-img>
@@ -30,10 +30,10 @@
 	</p>
 	<v-row no-gutters>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/SP_1.jpg')"></v-img>
+		<v-img class="white--text" height="521px" width="375px" src="@/assets/posters/SP_1.jpg"></v-img>
 	</v-col >
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px"  :src="require('../../assets/posters/SP_2.jpg')"></v-img>
+		<v-img class="white--text" height="521px" width="375px"  src="@/assets/posters/SP_2.jpg"></v-img>
 	</v-col>
 	</v-row>
 	
@@ -46,7 +46,7 @@
 	</p>
 	<v-row no-gutters>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Disturb.jpg')"></v-img>
+		<v-img class="white--text" height="521px" width="375px" src="@/assets/posters/Disturb.jpg"></v-img>
 	</v-col >
 	</v-row>
 	
@@ -60,7 +60,7 @@
 	</p>
 	<v-row no-gutters>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Where.png')"></v-img>
+		<v-img class="white--text" height="521px" width="375px" src="@/assets/posters/Where.png"></v-img>
 	</v-col >
 	</v-row>
 	
@@ -72,16 +72,16 @@
 	</p>
 	<v-row no-gutters>
 	<v-col align="center">
-		<v-img class="white--text" height="449px" width="300px" :src="require('../../assets/posters/Violence.png')"></v-img>
+		<v-img class="white--text" height="449px" width="300px" src="@/assets/posters/Violence.png"></v-img>
 	</v-col >
 	<v-col align="center">
-		<v-img class="white--text" height="449px" width="300px"  :src="require('../../assets/posters/Vanishing.png')"></v-img>
+		<v-img class="white--text" height="449px" width="300px"  src="@/assets/posters/Vanishing.png"></v-img>
 	</v-col>
 	<v-col align="center">
-		<v-img class="white--text" height="449px" width="300px"  :src="require('../../assets/posters/Easy.png')"></v-img>
+		<v-img class="white--text" height="449px" width="300px"  src="@/assets/posters/Easy.png"></v-img>
 	</v-col>
 	<v-col align="center">
-		<v-img class="white--text" height="449px" width="300px"  :src="require('../../assets/posters/Blue.png')"></v-img>
+		<v-img class="white--text" height="449px" width="300px"  src="@/assets/posters/Blue.png"></v-img>
 	</v-col>
 	</v-row>
 	
@@ -93,7 +93,7 @@
 	</p>
 	<v-row no-gutters>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Coil_Saves.png')"></v-img>
+		<v-img class="white--text" height="521px" width="375px" src="@/assets/posters/Coil_Saves.png"></v-img>
 	</v-col >
 	</v-row>
 	
@@ -105,10 +105,10 @@
 	</p>
 	<v-row no-gutters>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Attak_1.png')"></v-img>
+		<v-img class="white--text" height="521px" width="375px" src="@/assets/posters/Attak_1.png"></v-img>
 	</v-col >
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Attak_2.png')"></v-img>
+		<v-img class="white--text" height="521px" width="375px" src="@/assets/posters/Attak_2.png"></v-img>
 	</v-col >
 	</v-row>
 	
@@ -118,10 +118,10 @@
 	</p>
 	<v-row no-gutters>
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Fonder_1.png')"></v-img>
+		<v-img class="white--text" height="521px" width="375px" src="@/assets/posters/Fonder_1.png"></v-img>
 	</v-col >
 	<v-col align="center">
-		<v-img class="white--text" height="521px" width="375px" :src="require('../../assets/posters/Fonder_2.png')"></v-img>
+		<v-img class="white--text" height="521px" width="375px" src="@/assets/posters/Fonder_2.png"></v-img>
 	</v-col >
 	</v-row>
 	

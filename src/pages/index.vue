@@ -6,7 +6,7 @@
     <v-img
       class="white--text"
       height="200px"
-      :src="require('../../assets/me.png')">
+      src="@/assets/me.png">
 
       <v-card-title class="align-end fill-height headline">Maciej Penar, M.Sc.Eng.</v-card-title>
     </v-img>
@@ -55,17 +55,17 @@
   <h1>Articles</h1>
   <v-expansion-panels>
       <v-expansion-panel v-for="(article, i) in articles" :key="i">
-        <v-expansion-panel-header>
+        <v-expansion-panel-title>
           <div>
             {{article.title}} ({{article.year}}) <br/>
             <b>{{article.authors}}</b>
           </div>
-        </v-expansion-panel-header>
-        <v-expansion-panel-content>
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
           <span>Published in: {{article.book}}</span><br/><br/>
           <span>{{article.abstract}}</span><br/><br/>
           <a v-bind:href="article.link" download>Download</a>
-        </v-expansion-panel-content>
+        </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
   </v-container>

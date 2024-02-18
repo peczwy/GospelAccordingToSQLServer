@@ -1,62 +1,20 @@
-import Vue from 'vue';
-import App from './App.vue';
-import vuetify from './plugins/vuetify';
-import VueCodeHighlight from 'vue-code-highlight';
+/**
+ * main.js
+ *
+ * Bootstraps Vuetify and other plugins then mounts the App`
+ */
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSkull, faSearch, faExclamation, faDatabase, faBolt, faChartBar, faUserSecret, faWarehouse, faKeyboard, faTooth, faImage } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+// Plugins
+import { registerPlugins } from '@/plugins'
 
-library.add(faSkull, faSearch, faExclamation, faDatabase, faBolt, faChartBar, faUserSecret, faWarehouse, faKeyboard, faTooth, faImage )
+// Components
+import App from './App.vue'
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.use(VueCodeHighlight)
+// Composables
+import { createApp } from 'vue'
 
-Vue.config.productionTip = false
+const app = createApp(App)
 
-Vue.mixin({
-  methods: {
-    copySql (i) {
-		var textArea = document.createElement("textarea");
-		textArea.value = this.sqls[i].sql;
+registerPlugins(app)
 
-		textArea.style.top = "0";
-		textArea.style.left = "0";
-		textArea.style.position = "fixed";
-
-		document.body.appendChild(textArea);
-		textArea.focus();
-		textArea.select();
-
-		try {
-			var successful = document.execCommand('copy');
-			var msg = successful ? 'successful' : 'unsuccessful';
-			console.log('Fallback: Copying text command was ' + msg);
-		} catch (err) {
-			console.error('Fallback: Oops, unable to copy', err);
-		}
-		document.body.removeChild(textArea);
-	},
-  },
-})
-
-export function getContent(theUrl)
-{
-    let xmlhttp = new XMLHttpRequest();
-    
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            return xmlhttp.responseText;
-        }
-    }
-    xmlhttp.open("GET", theUrl, false);
-	
-    xmlhttp.send();
-    
-    return xmlhttp.response;
-}
-
-new Vue({
-  vuetify,
-  render: h => h(App)
-}).$mount('#app')
+app.mount('#app')

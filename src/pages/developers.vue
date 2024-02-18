@@ -2,13 +2,13 @@
   <v-container>
 	<v-expansion-panels>
 		<v-expansion-panel v-for="(sql, i) in sqls" :key="i" @click="onExpansionPanelClick">
-			<v-expansion-panel-header>
+			<v-expansion-panel-title>
 				<div>{{sql.title}}<br/><b>{{sql.text}}</b></div>
-			</v-expansion-panel-header>
-			<v-expansion-panel-content>
+			</v-expansion-panel-title>
+			<v-expansion-panel-text>
 				<pre><code class="language-sql">{{sql.sql}}</code></pre><br/>
 				<v-btn class="ma-2" outlined color="secondary" @click.stop.prevent="onCopy(i)">Copy</v-btn>
-			</v-expansion-panel-content>
+			</v-expansion-panel-text>
 		</v-expansion-panel>
 	</v-expansion-panels>
 	<v-snackbar v-model="copySnackbar.snackbar" :timeout="copySnackbar.timeout">
@@ -23,7 +23,6 @@
 import Prism from 'prismjs'
 import 'prismjs/themes/prism-coy.css'
 import 'prismjs/components/prism-sql'
-import {getContent} from '../../main.js'
 
 export default {
 	name: 'Operations',
@@ -42,12 +41,12 @@ export default {
 			{
 				title: 'Template: Recreate clustered index (1)', 
 				text: 'Template for the recreation of the clustered index', 
-				sql: getContent('./sqls/dev/template_recreate_clustered_index_1.sql')
+				sql: getContent('./sqls/dev/template_recreate_clustered_index_1.sql'),
 			},
 			{
 				title: 'Log-safe delete', 
 				text: 'Loop for the DELETE that counters log-growth', 
-				sql: getContent('./sqls/dev/delete_1.sql')
+				sql: getContent('./sqls/dev/delete_1.sql'),
 			}
 		],
 	}),
@@ -60,5 +59,21 @@ export default {
 			this.copySnackbar.snackbar = true
 		}
 	}
+}
+
+export function getContent(theUrl)
+{
+    let xmlhttp = new XMLHttpRequest();
+    
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            return xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET", theUrl, false);
+	
+    xmlhttp.send();
+    
+    return xmlhttp.response;
 }
 </script>
