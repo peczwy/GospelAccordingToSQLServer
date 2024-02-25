@@ -1,6 +1,9 @@
 # build
 npm run build
 
+# copy jekyll config
+Copy-Item .\_config.yml -Destination .\dist\_config.yml
+
 # navigate into the build output directory
 cd dist
 
