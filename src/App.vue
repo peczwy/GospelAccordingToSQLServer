@@ -39,28 +39,53 @@
 <script>
   export default {
     data: () => ({
-      drawer: false,
-      group: null,
-	  options: [
-		{name: 'About Me', icon: 'skull', route: '/'},
-		{name: 'According To Devs', icon: 'search', route: '/developers'},
-		{name: 'According To Ops', icon: 'search', route: '/operations'},
-		{name: 'Experiments', icon: 'search', route: '/experiments'},
-		{name: 'Posters', icon: 'image', route: '/posters'},
-		{name: 'One Important Thought', icon: 'exclamation', route: '/thought'},
-	  ],
-	  selectedIndex: 0
+        drawer: false,
+        group: null,
+        options: [
+        {name: 'About Me', icon: 'skull', route: '/'},
+        {name: 'According To Devs', icon: 'search', route: '/developers'},
+        {name: 'According To Ops', icon: 'search', route: '/operations'},
+        {name: 'Experiments', icon: 'search', route: '/experiments'},
+        {name: 'Posters', icon: 'image', route: '/posters'},
+        {name: 'One Important Thought', icon: 'exclamation', route: '/thought'},
+        ],
+        selectedIndex: 0
     }),
     watch: {
       group () {
         this.drawer = false
       },
     },
-	computed:{
-		selected(){
-			return this.options[this.selectedIndex]
-		}
-	},
+    computed:{
+      selected(){
+        return this.options[this.selectedIndex]
+      }
+    },
+    // mixins: [{
+    //   methods: {
+    //     copySql (i) {
+    //       var textArea = document.createElement("textarea");
+    //       textArea.value = this.sqls[i].sql;
+
+    //       textArea.style.top = "0";
+    //       textArea.style.left = "0";
+    //       textArea.style.position = "fixed";
+
+    //       document.body.appendChild(textArea);
+    //       textArea.focus();
+    //       textArea.select();
+
+    //       try {
+    //         var successful = document.execCommand('copy');
+    //         var msg = successful ? 'successful' : 'unsuccessful';
+    //         console.log('Fallback: Copying text command was ' + msg);
+    //       } catch (err) {
+    //         console.error('Fallback: Oops, unable to copy', err);
+    //       }
+    //       document.body.removeChild(textArea);
+    //     },
+    //   },
+    // }]
   }
 </script>
 
