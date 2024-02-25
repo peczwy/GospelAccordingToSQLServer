@@ -4,9 +4,10 @@
   <v-card
     class="mx-auto">
     <v-img
-      class="white--text"
+      class="align-end text-white"
       height="200px"
-      src="@/assets/me.png">
+      src="@/assets/me.png"
+	  cover>
 
 	<v-card-title class="align-end fill-height headline">Maciej Penar, M.Sc.Eng.</v-card-title>
 		</v-img>
