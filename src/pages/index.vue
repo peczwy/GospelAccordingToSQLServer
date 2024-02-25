@@ -36,18 +36,18 @@
       class="mx-auto"
       tile>
 
-      <v-list disabled>
-        <v-list-item-group color="primary">
-          <v-list-item v-for="(field, i) in fields" :key="i">
-            <v-list-item-icon>
-				<font-awesome-icon :icon="['fas', field.icon]" />
-            </v-list-item-icon>
-            <v-list-item-content>
+      <v-list>
+        <v-list-item
+        v-for="(field, i) in fields" 
+        :key="i"
+        :value="field"
+        color="primary">
+              <template v-slot:prepend>
+			            <font-awesome-icon class="pr-md-4 mx-lg-auto" :icon="['fas', field.icon]" />
+              </template>
               <v-list-item-title v-text="field.text"></v-list-item-title>
               <v-list-item-subtitle v-text="field.subtext"></v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
+        </v-list-item>
       </v-list>
     </v-card>
 

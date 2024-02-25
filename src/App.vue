@@ -2,7 +2,7 @@
   <v-app>
 	<v-app-bar :elevation="2" color="pink" dark>
 	  <template v-slot:prepend>
-		<v-app-bar-nav-icon  variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+		  <v-app-bar-nav-icon  variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 	  </template>
 
 	  <v-app-bar-title>{{selected.name}}</v-app-bar-title>
@@ -13,13 +13,15 @@
         location="left"
         temporary>
       <v-list dense>
-        <v-list-item v-for="(option, index) in options" :key="index" @click="selectedIndex = index" :to="option.route">
-          <v-list-item-action>
-			<font-awesome-icon :icon="['fas', option.icon]" />
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>{{option.name}}</v-list-item-title>
-          </v-list-item-content>
+        <v-list-item 
+        v-for="(option, index) in options" 
+        :key="index" @click="selectedIndex = index" 
+        :to="option.route">
+        
+          <template v-slot:prepend>
+            <font-awesome-icon class="pr-md-4 mx-lg-auto" :icon="['fas', option.icon]" />
+          </template>
+          <v-list-item-title>{{option.name}}</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
