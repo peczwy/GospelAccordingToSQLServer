@@ -45,6 +45,9 @@ export default defineConfig({
     }),
   ],
   define: { 'process.env': {} },
+  base: process.env.NODE_ENV === 'production'
+    ? '/GospelAccordingToSQLServer/'
+    : '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
