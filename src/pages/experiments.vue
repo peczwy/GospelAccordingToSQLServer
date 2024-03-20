@@ -39,7 +39,7 @@ export default {
 			{
 				title: 'Experiment: fragmentation issue in RCSI', 
 				text: 'Experiment that assesses what is the actual magnitude of the fragmentation when using RCSI level - we check the change after performing massive update (half records of the table) under 3 scenarios', 
-				sql: getContent('./sqls/tests/rcsi_frag.sql'),
+				sql: getContent('./GospelAccordingToSQLServer/sqls/tests/rcsi_frag.sql'),
 			}
 		],
 	}),

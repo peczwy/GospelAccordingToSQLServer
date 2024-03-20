@@ -44,24 +44,24 @@ export default {
 			{
 				title: 'Opened transaction', 
 				text: 'SQL to find out which transactions are opened', 
-				sql: getContent('./sqls/ops/opened_transactions_1.sql'),
+				sql: getContent('./GospelAccordingToSQLServer/sqls/ops/opened_transactions_1.sql'),
 			},
 			{
 				title: 'Waits', 
 				text: 'SQL to find out waits', 
-				sql: getContent('./sqls/ops/waits_1.sql'),
+				sql: getContent('./GospelAccordingToSQLServer/src/assets/sqls/ops/waits_1.sql'),
 				source: 'https://db-berater.blogspot.com/2015/04/guid-vs-intidentity-als-clustered-key.html'
 			},
 			{
 				title: 'Size of tables', 
 				text: 'SQL to find out size of all tables', 
-				sql: getContent('./sqls/ops/size_1.sql'),
+				sql: getContent('./GospelAccordingToSQLServer/src/assets/sqls/ops/size_1.sql'),
 				source: 'https://stackoverflow.com/questions/7892334/get-size-of-all-tables-in-database/7892349'
 			},
 			{
 				title: 'Stats Info', 
 				text: 'SQL to find out the information about statistics', 
-				sql: getContent('./sqls/ops/stats_1.sql')
+				sql: getContent('./GospelAccordingToSQLServer/sqls/ops/stats_1.sql')
 			}
 		],
 	}),
