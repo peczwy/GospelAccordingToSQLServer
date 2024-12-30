@@ -1,0 +1,10 @@
+{
+  "sqls": [
+    {
+      "key": "1",
+      "title": "Create index",
+      "description": "SQL to create index",
+      "sql": "CREATE INDEX @name ON @schema.@table(@columns)"
+    }
+  ]
+}

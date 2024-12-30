@@ -6,7 +6,7 @@ class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 84, 255, 13),
+      color: Consts.color,
       child: BlocProvider<TestCubit>(
         create: (context) => TestCubit(0),
         child: Column(
@@ -36,7 +36,7 @@ class TestScreen extends StatelessWidget {
                 // The green box must be a child of the AnimatedOpacity widget.
                 child: Container(
                   child: Image.asset(
-                    'images/eye_2.png',
+                    'images/eye.png',
                     width: 376,
                     height: 539,
                   ),
