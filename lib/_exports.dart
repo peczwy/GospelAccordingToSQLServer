@@ -1,7 +1,9 @@
 export 'core/consts.dart';
 export 'navigation/router.dart';
-export 'model/sql_entry.dart';
-export 'model/sql_repository.dart';
+export 'model/articles/article_entry.dart';
+export 'model/articles/article_repository.dart';
+export 'model/sqls/sql_entry.dart';
+export 'model/sqls/sql_repository.dart';
 export 'ui/application/gospel_app.dart';
 export 'ui/screens/arg_screen.dart';
 export 'ui/screens/test_screen.dart';
