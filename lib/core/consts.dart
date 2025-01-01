@@ -23,10 +23,18 @@ class Consts {
     fontSize: 16,
   );
 
+  static const TextStyle typographyDispatcher = TextStyle(
+    fontFamily: 'RobotoMono',
+    color: Colors.white,
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+  );
+
   static double get dispatcherIconSize => max(dispatcherBoxSize - 75, 0);
 
   static double get padding => 10;
 
+  static const quick = Duration(milliseconds: 200);
   static const fadeWarmup = Duration(milliseconds: 1000);
   static const fadeLinger = Duration(milliseconds: 2000);
   static const fadeSustain = Duration(milliseconds: 4000);

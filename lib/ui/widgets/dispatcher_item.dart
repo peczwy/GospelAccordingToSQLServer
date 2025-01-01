@@ -43,19 +43,16 @@ class DispatcherItem extends StatelessWidget {
                           height: Consts.dispatcherIconSize,
                         ),
                   BlocBuilder<_DispatcherCubit, bool>(
-                    builder: (_, state) => Visibility(
-                      visible: state,
+                    builder: (_, state) => AnimatedOpacity(
+                      opacity: state ? 1 : 0,
+                      duration: Consts.quick,
                       child: SizedBox(
                         height: Consts.dispatcherIconSize,
                         width: Consts.dispatcherIconSize,
                         child: Center(
                           child: Text(
                             title,
-                            style: Consts.typography.copyWith(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Consts.typographyDispatcher,
                             textAlign: TextAlign.center,
                           ),
                         ),
