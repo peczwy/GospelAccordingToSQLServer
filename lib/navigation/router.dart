@@ -25,7 +25,7 @@ GoRouter createRouter() => GoRouter(
             ),
             GoRoute(
               path: Consts.pathToImportant,
-              builder: (context, state) => Text('important'),
+              builder: (context, state) => const ImportantScreen(),
             ),
           ],
         ),

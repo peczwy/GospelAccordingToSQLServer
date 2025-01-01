@@ -73,6 +73,24 @@ flutter:
    - assets/data/sqls/tests/rcsi_frag.sql
    - assets/data/metadata/articles.json
    - assets/data/metadata/sqls.json
+   - assets/images/icons/ic_about.png
+   - assets/images/icons/ic_chaos.png
+   - assets/images/icons/ic_gospel.png
+   - assets/images/icons/ic_posters.png
+   - assets/images/posters/Attak_1.png
+   - assets/images/posters/Attak_2.png
+   - assets/images/posters/Blue.png
+   - assets/images/posters/Coil_Saves.png
+   - assets/images/posters/Disturb.jpg
+   - assets/images/posters/Easy.png
+   - assets/images/posters/Fonder_1.png
+   - assets/images/posters/Fonder_2.png
+   - assets/images/posters/NSFW.png
+   - assets/images/posters/SP_1.jpg
+   - assets/images/posters/SP_2.jpg
+   - assets/images/posters/Vanishing.png
+   - assets/images/posters/Violence.png
+   - assets/images/posters/Where.png
    - assets/images/eye.png
    - assets/images/landing.gif
 

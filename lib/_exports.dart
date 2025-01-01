@@ -7,6 +7,7 @@ export 'model/sqls/sql_repository.dart';
 export 'ui/application/gospel_app.dart';
 export 'ui/screens/dispatcher/cubit/dispatcher_cubit.dart';
 export 'ui/screens/dispatcher/dispatcher_screen.dart';
+export 'ui/screens/important/important_screen.dart';
 export 'ui/screens/arg_screen.dart';
 export 'ui/screens/test_screen.dart';
 export 'ui/widgets/dispatcher_item.dart';

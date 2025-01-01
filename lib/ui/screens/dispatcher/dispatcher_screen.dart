@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
@@ -39,19 +40,23 @@ class _DispatcherContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         DispatcherItem(
-          title: 'About',
+          title: 'ABOUT ME',
           path: Consts.pathToAbout,
+          image: AssetImage('assets/images/icons/ic_about.png'),
         ),
         DispatcherItem(
-          title: 'Gospel',
-          path: Consts.pathToGospel,
+          title: 'GOSPEL ACCORDING TO SQL',
+          path: '${Consts.pathToGospel}/x',
+          image: AssetImage('assets/images/icons/ic_gospel.png'),
         ),
         DispatcherItem(
-          title: 'Posters',
-          path: Consts.pathToPosters,
+          title: 'POSTERS',
+          path: '${Consts.pathToPosters}/x',
+          image: AssetImage('assets/images/icons/ic_posters.png'),
         ),
         DispatcherItem(
-          title: 'Important',
+          title: 'ONE VERY IMPORTANT THOUGHT',
+          image: AssetImage('assets/images/icons/ic_chaos.png'),
           path: Consts.pathToImportant,
         ),
       ],
