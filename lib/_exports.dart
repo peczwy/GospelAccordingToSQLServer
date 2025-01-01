@@ -9,6 +9,7 @@ export 'ui/screens/about/about_screen.dart';
 export 'ui/screens/dispatcher/cubit/dispatcher_cubit.dart';
 export 'ui/screens/dispatcher/dispatcher_screen.dart';
 export 'ui/screens/gospel/gospel_screen.dart';
+export 'ui/screens/gospel/cubit/gospel_cubit.dart';
 export 'ui/screens/important/important_screen.dart';
 export 'ui/screens/posters/posters_screen.dart';
 export 'ui/screens/rad/rad_screen.dart';

@@ -13,10 +13,9 @@ GoRouter createRouter() => GoRouter(
             ),
             GoRoute(
               path: '${Consts.pathToGospel}/:name',
-              builder: (context, state) => const GospelScreen(),
-              // builder: (context, state) => ArgScreen(
-              //   title: state.pathParameters["name"] ?? "",
-              // ),
+              builder: (context, state) => GospelScreen(
+                name: state.pathParameters["name"],
+              ),
             ),
             GoRoute(
               path: '${Consts.pathToPosters}/:name',
