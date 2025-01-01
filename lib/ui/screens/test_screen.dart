@@ -3,6 +3,7 @@ import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
 class TestScreen extends StatelessWidget {
   const TestScreen();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,6 +43,10 @@ class TestScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            GifWrapper(
+              image: const AssetImage('assets/images/landing.gif'),
+              listener: (status) => print(status.toString()),
             ),
           ],
         ),

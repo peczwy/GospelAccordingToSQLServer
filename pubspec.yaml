@@ -45,15 +45,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   build_runner: ^2.4.9
   flutter_lints: ^3.0.0
   freezed: ^2.5.2
+  gif: ^2.3.0
   json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
@@ -76,10 +71,10 @@ flutter:
    - assets/data/sqls/ops/stats_1.sql
    - assets/data/sqls/ops/waits_1.sql
    - assets/data/sqls/tests/rcsi_frag.sql
-   - assets/data/articles.json
-   - assets/data/sqls.json
+   - assets/data/metadata/articles.json
+   - assets/data/metadata/sqls.json
    - assets/images/eye.png
-  #   - images/a_dot_ham.jpeg
+   - assets/images/landing.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

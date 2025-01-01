@@ -7,4 +7,5 @@ export 'model/sqls/sql_repository.dart';
 export 'ui/application/gospel_app.dart';
 export 'ui/screens/arg_screen.dart';
 export 'ui/screens/test_screen.dart';
+export 'ui/widgets/gif_wrapper.dart';
 export 'packages.dart';

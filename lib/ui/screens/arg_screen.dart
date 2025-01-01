@@ -14,7 +14,7 @@ class ArgScreen extends StatelessWidget {
   final String title;
 
   Future<void> getFileData() async {
-    final data = await rootBundle.loadString('data/sqls.json');
+    final data = await rootBundle.loadString('data/metadata/sqls.json');
     final x = SQLRepository.fromJson(jsonDecode(data));
     print(x);
   }
