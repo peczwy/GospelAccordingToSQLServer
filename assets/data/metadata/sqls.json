@@ -8,6 +8,13 @@
       "sql": "CREATE INDEX @name ON @schema.@table(@columns)"
     },
     {
+      "key": "buffer_clean",
+      "type": "development",
+      "title": "Buffer Clean",
+      "description": "The most important script",
+      "sql": "DBCC DROPCLEANBUFFERS\nGO\nDBCC FREEPROCCACHE\nGO"
+    },
+    {
       "key": "safe_delete",
       "title": "Safe delete",
       "type": "development",
