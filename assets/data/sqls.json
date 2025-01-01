@@ -1,10 +1,61 @@
 {
   "sqls": [
     {
-      "key": "1",
+      "key": "create_index",
+      "type": "development",
       "title": "Create index",
       "description": "SQL to create index",
       "sql": "CREATE INDEX @name ON @schema.@table(@columns)"
+    },
+    {
+      "key": "safe_delete",
+      "title": "Safe delete",
+      "type": "development",
+      "description": "Safely deletes the content of the table - without thrashing the system log",
+      "sql_file": "data/sqls/dev/delete_1.sql"
+    },
+    {
+      "key": "recreate_clustered_index",
+      "title": "ClusteredIndex recreate",
+      "type": "development",
+      "description": "Recreates the clustered index of the table",
+      "sql_file": "data/sqls/dev/template_recreate_clustered_index_1.sql"
+    },
+    {
+      "key": "opened_transactions",
+      "title": "Opened transactions",
+      "type": "operations",
+      "description": "Checks opened transactions in Server Instance",
+      "sql_file": "data/sqls/ops/opened_transactions_1.sql"
+    },
+    {
+      "key": "size",
+      "title": "Check tables size",
+      "type": "operations",
+      "description": "Checks tables metadata",
+      "sql_file": "data/sqls/ops/size_1.sql",
+      "source": "https://stackoverflow.com/questions/7892334/get-size-of-all-tables-in-database"
+    },
+    {
+      "key": "stats",
+      "title": "Check tables statistics",
+      "type": "operations",
+      "description": "Checks statistics metadata",
+      "sql_file": "data/sqls/ops/stats_1.sql"
+    },
+    {
+      "key": "waits",
+      "title": "Check waits",
+      "type": "operations",
+      "description": "Checks waits",
+      "sql_file": "data/sqls/ops/waits_1.sql"
+    },
+    {
+      "key": "rcsi",
+      "title": "RCSI fragmentation",
+      "type": "tests",
+      "description": "Checks the fragmentation of the RCSI-enabled database",
+      "sql_file": "data/sqls/tests/rcsi_frag.sql"
     }
   ]
 }
