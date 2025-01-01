@@ -4,4 +4,13 @@ class Consts {
   static const String title = 'Gospel According To SQL';
 
   static const Color color = Color.fromARGB(255, 84, 255, 13);
+
+  static const String pathToAbout = '/about';
+  static const String pathToGospel = '/gospel';
+  static const String pathToPosters = '/posters';
+  static const String pathToImportant = '/important';
+
+  static const fadeWarmup = Duration(milliseconds: 1000);
+  static const fadeLinger = Duration(milliseconds: 2000);
+  static const fadeSustain = Duration(milliseconds: 4000);
 }
