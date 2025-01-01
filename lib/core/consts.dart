@@ -11,6 +11,7 @@ class Consts {
   static const String pathToGospel = '/gospel';
   static const String pathToPosters = '/posters';
   static const String pathToImportant = '/important';
+  static const String pathToRad = '/rad';
   static const String importantUrl =
       'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1';
 

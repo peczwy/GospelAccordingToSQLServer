@@ -1,17 +1,12 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-import 'package:gospel_at_flutter/_exports.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 import 'dart:html' as html;
 
-class ArgScreen extends StatelessWidget {
-  ArgScreen({
-    super.key,
-    required this.title,
-  });
-
-  final String title;
+class RadScreen extends StatelessWidget {
+  const RadScreen({super.key});
 
   Future<void> getFileData() async {
     final data = await rootBundle.loadString('data/metadata/sqls.json');
@@ -30,15 +25,9 @@ class ArgScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    getFileData();
-    return Column(
-      children: [
-        Text('Omnom: $title'),
-        MaterialButton(
-          onPressed: () => downloadFile(),
-          child: Text('download'),
-        ),
-      ],
+    return Container(
+      color: Consts.color,
+      child: const Text('R&D'),
     );
   }
 }

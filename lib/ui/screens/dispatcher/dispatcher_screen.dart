@@ -59,6 +59,11 @@ class _DispatcherContent extends StatelessWidget {
           image: AssetImage('assets/images/icons/ic_chaos.png'),
           path: Consts.pathToImportant,
         ),
+        DispatcherItem(
+          title: 'R&D',
+          image: AssetImage('assets/images/icons/ic_chaos.png'),
+          path: Consts.pathToRad,
+        ),
       ],
     );
   }
