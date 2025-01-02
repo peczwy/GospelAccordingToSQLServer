@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
-import 'dart:html' as html;
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});

@@ -6,12 +6,18 @@ class GifWrapper extends StatefulWidget {
   const GifWrapper({
     super.key,
     required this.image,
+    this.width,
+    this.height,
     this.listener,
   });
 
   final ImageProvider image;
 
   final AnimationStatusListener? listener;
+
+  final double? width;
+
+  final double? height;
 
   @override
   State<StatefulWidget> createState() => _GifWrapperState();
@@ -29,6 +35,9 @@ class _GifWrapperState extends State<GifWrapper> with TickerProviderStateMixin {
     });
     return Gif(
       image: widget.image,
+      height: widget.height,
+      width: widget.width,
+      fit: BoxFit.fill,
       controller: controller,
       autostart: Autostart.once,
       placeholder: (context) => const CircularProgressIndicator(),

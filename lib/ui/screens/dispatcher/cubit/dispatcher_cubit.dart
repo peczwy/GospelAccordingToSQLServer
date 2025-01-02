@@ -7,11 +7,13 @@ class DispatcherCubit extends Cubit<DispatcherState> {
   DispatcherCubit() : super(const DispatcherState.initial(opacity: 0));
 
   Future<void> initialize() async {
-    await Future.delayed(Consts.fadeWarmup);
-    emit(const DispatcherState.initial(opacity: 1));
-    await Future.delayed(Consts.fadeSustain);
-    emit(const DispatcherState.initial(opacity: 0));
-    await Future.delayed(Consts.fadeLinger);
-    emit(const DispatcherState.ready());
+    if (!isClosed) {
+      await Future.delayed(Consts.fadeWarmup);
+      emit(const DispatcherState.initial(opacity: 1));
+      await Future.delayed(Consts.fadeSustain);
+      emit(const DispatcherState.initial(opacity: 0));
+      await Future.delayed(Consts.fadeLinger);
+      emit(const DispatcherState.ready());
+    }
   }
 }

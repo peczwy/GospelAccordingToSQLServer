@@ -22,6 +22,8 @@ class Consts {
   static const double posterHeight = 539;
   static const double posterWidth = 376;
 
+  static const double gifSize = 600;
+
   static const TextStyle typography = TextStyle(
     fontFamily: 'RobotoMono',
     color: Colors.black,

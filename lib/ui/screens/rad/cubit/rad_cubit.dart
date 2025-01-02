@@ -10,7 +10,7 @@ class RadCubit extends Cubit<RadState> {
   Future<void> initialize() async {
     emit(
       RadState(
-        gif: const AssetImage('images/landing.gif'),
+        gif: await GifGenerator.instance.shuffle(asset: 'images/landing.gif', frames: 24),
         timestamp: DateTime.now().millisecondsSinceEpoch,
       ),
     );
