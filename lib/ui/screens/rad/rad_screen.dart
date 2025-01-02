@@ -11,42 +11,37 @@ class RadScreen extends StatelessWidget {
       body: Container(
         color: Consts.color,
         child: BlocProvider<RadCubit>(
-          create: (context) => RadCubit()..initialize(),
-          child: Center(
-            child: Stack(
-              children: [
-                BlocBuilder<RadCubit, RadState>(
-                  builder: (context, state) {
-                    final gif = state.gif;
-                    return gif.isEmpty
-                        ? const CircularProgressIndicator()
-                        : Gif(
-                            key: UniqueKey(),
-                            images: gif,
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height,
-                            passpartout: true,
-                            fit: BoxFit.fitWidth,
-                          );
-                  },
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: EdgeInsets.all(Consts.padding),
-                    child: Builder(
-                      builder: (context) => MaterialButton(
-                        child: const Icon(
-                          Icons.refresh,
-                          color: Colors.white,
+          create: (context) => RadCubit(),
+          child: BlocBuilder<RadCubit, RadState>(
+            builder: (context, state) {
+              final gif = state.gif;
+              return gif.isEmpty
+                  ? Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: EdgeInsets.all(Consts.padding),
+                        child: Builder(
+                          builder: (context) => MaterialButton(
+                            child: const Icon(
+                              Icons.play_arrow,
+                              color: Colors.black,
+                              size: Consts.fieldsBoxSize,
+                            ),
+                            onPressed: () async => context.read<RadCubit>().next(),
+                          ),
                         ),
-                        onPressed: () async => context.read<RadCubit>().next(),
                       ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+                    )
+                  : Gif(
+                      key: UniqueKey(),
+                      images: gif,
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,
+                      passpartout: true,
+                      fit: BoxFit.fitWidth,
+                      callback: () => context.read<RadCubit>().hide(),
+                    );
+            },
           ),
         ),
       ),

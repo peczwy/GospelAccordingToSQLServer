@@ -11,13 +11,13 @@ class Gif extends StatelessWidget {
     this.width,
     this.height,
     this.passpartout = false,
-    this.listener,
+    this.callback,
     this.fit,
   });
 
   final List<ui.Image> images;
 
-  final AnimationStatusListener? listener;
+  final Function()? callback;
 
   final double? width;
 
@@ -34,7 +34,10 @@ class Gif extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.all(passpartout ? 100 : 0),
         child: BlocProvider<GifCubit>(
-          create: (_) => GifCubit(length: images.length),
+          create: (_) => GifCubit(
+            length: images.length,
+            callback: callback,
+          ),
           child: BlocBuilder<GifCubit, int>(
             builder: (context, state) {
               unawaited(context.read<GifCubit>().requestFrame());
@@ -53,8 +56,13 @@ class Gif extends StatelessWidget {
 }
 
 class GifCubit extends Cubit<int> {
-  GifCubit({required this.length, this.loop = false}) : super(0);
+  GifCubit({
+    required this.length,
+    this.loop = false,
+    this.callback,
+  }) : super(0);
 
+  final Function()? callback;
   final int length;
 
   final bool loop;
@@ -63,6 +71,10 @@ class GifCubit extends Cubit<int> {
     await Future.delayed(const Duration(milliseconds: 86));
     final next = state + 1;
     if (!loop && next == length) {
+      final callback = this.callback;
+      if (callback != null) {
+        callback();
+      }
       return;
     }
     emit(next % length);

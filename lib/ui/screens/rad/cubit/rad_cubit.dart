@@ -9,14 +9,19 @@ part 'rad_state.dart';
 class RadCubit extends Cubit<RadState> {
   RadCubit() : super(RadState());
 
-  Future<void> initialize() async {
+  Future<void> hide() async {
     emit(
       RadState(
-        gif: await GifGenerator.instance.next(),
+        gif: [],
         timestamp: DateTime.now().millisecondsSinceEpoch,
       ),
     );
   }
 
-  Future<void> next() async => initialize();
+  Future<void> next() async => emit(
+        RadState(
+          gif: await GifGenerator.instance.next(),
+          timestamp: DateTime.now().millisecondsSinceEpoch,
+        ),
+      );
 }
