@@ -8,6 +8,7 @@ class GifWrapper extends StatefulWidget {
     required this.image,
     this.width,
     this.height,
+    this.passpartout = false,
     this.listener,
   });
 
@@ -18,6 +19,8 @@ class GifWrapper extends StatefulWidget {
   final double? width;
 
   final double? height;
+
+  final bool passpartout;
 
   @override
   State<StatefulWidget> createState() => _GifWrapperState();
@@ -33,18 +36,24 @@ class _GifWrapperState extends State<GifWrapper> with TickerProviderStateMixin {
         listener(status);
       }
     });
-    return Gif(
-      image: widget.image,
-      height: widget.height,
-      width: widget.width,
-      fit: BoxFit.fill,
-      controller: controller,
-      autostart: Autostart.once,
-      placeholder: (context) => const CircularProgressIndicator(),
-      onFetchCompleted: () {
-        controller.reset();
-        controller.forward();
-      },
+    return Container(
+      color: widget.passpartout ? Colors.black : Colors.transparent,
+      child: Padding(
+        padding: EdgeInsets.all(widget.passpartout ? 100 : 0),
+        child: Gif(
+          image: widget.image,
+          height: widget.height,
+          width: widget.width,
+          fit: BoxFit.fill,
+          controller: controller,
+          autostart: Autostart.once,
+          placeholder: (context) => const CircularProgressIndicator(),
+          onFetchCompleted: () {
+            controller.reset();
+            controller.forward();
+          },
+        ),
+      ),
     );
   }
 }

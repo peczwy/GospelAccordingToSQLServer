@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
@@ -8,9 +10,10 @@ class RadCubit extends Cubit<RadState> {
   RadCubit() : super(RadState());
 
   Future<void> initialize() async {
+    // unawaited(GifGenerator.instance.landing());
     emit(
       RadState(
-        gif: await GifGenerator.instance.shuffle(asset: 'images/landing.gif', frames: 24),
+        gif: await GifGenerator.instance.current,
         timestamp: DateTime.now().millisecondsSinceEpoch,
       ),
     );

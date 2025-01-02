@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
 part 'dispatcher_cubit.freezed.dart';
@@ -8,6 +10,7 @@ class DispatcherCubit extends Cubit<DispatcherState> {
 
   Future<void> initialize() async {
     if (!isClosed) {
+      unawaited(GifGenerator.instance.landing());
       await Future.delayed(Consts.fadeWarmup);
       emit(const DispatcherState.initial(opacity: 1));
       await Future.delayed(Consts.fadeSustain);

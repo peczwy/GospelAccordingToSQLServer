@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
@@ -13,6 +14,8 @@ class GifGenerator {
 
   final random = Random();
 
+  late Future<ImageProvider?> current = _next(asset: 'images/landing.gif', frames: 24);
+
   Iterable<img.Image> _cut(List<img.Image> images, int target, int cutLength) {
     final output = <img.Image>[];
     final span = random.nextInt(min(max(0, target), cutLength)) + 1;
@@ -23,7 +26,7 @@ class GifGenerator {
     return output;
   }
 
-  Future<ImageProvider?> shuffle({
+  Future<ImageProvider?> _next({
     required String asset,
     int frames = 24,
   }) async {
@@ -40,11 +43,21 @@ class GifGenerator {
     final sample = framez.first;
     final output = img.Image(width: sample.width, height: sample.height);
     while (output.frames.length < frames) {
-      print(output.frames.length);
       for (final frame in _cut(framez, frames - output.frames.length, 12)) {
         output.addFrame(img.grayscale(frame));
       }
     }
     return MemoryImage(img.encodeGif(output));
   }
+
+  Future<void> next({
+    required String asset,
+    int frames = 24,
+  }) async {
+    final future = _next(asset: asset, frames: frames);
+    await future;
+    current = future;
+  }
+
+  Future<void> landing() => next(asset: 'images/landing.gif', frames: 24);
 }
