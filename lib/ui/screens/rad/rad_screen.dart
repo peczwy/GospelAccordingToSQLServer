@@ -20,11 +20,11 @@ class RadScreen extends StatelessWidget {
                 BlocBuilder<RadCubit, RadState>(
                   builder: (context, state) {
                     final gif = state.gif;
-                    return gif == null
+                    return gif.isEmpty
                         ? const CircularProgressIndicator()
-                        : GifWrapper(
+                        : Gif(
                             key: UniqueKey(),
-                            image: gif,
+                            images: gif,
                             width: Consts.gifSize,
                             height: Consts.gifSize,
                             passpartout: true,

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/widgets.dart';
+import 'dart:ui';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
 part 'rad_cubit.freezed.dart';
@@ -12,7 +12,7 @@ class RadCubit extends Cubit<RadState> {
   Future<void> initialize() async {
     emit(
       RadState(
-        gif: await GifGenerator.instance.current,
+        gif: await GifGenerator.instance.loadGif(),
         timestamp: DateTime.now().millisecondsSinceEpoch,
       ),
     );
@@ -20,5 +20,5 @@ class RadCubit extends Cubit<RadState> {
 
   Future<void> refresh() async => initialize();
 
-  Future<void> next() async => GifGenerator.instance.landing();
+  Future<void> next() async => GifGenerator.instance.loadGif();
 }
