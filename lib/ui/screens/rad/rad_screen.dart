@@ -14,8 +14,6 @@ class RadScreen extends StatelessWidget {
           create: (context) => RadCubit()..initialize(),
           child: Center(
             child: Stack(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 BlocBuilder<RadCubit, RadState>(
                   builder: (context, state) {
