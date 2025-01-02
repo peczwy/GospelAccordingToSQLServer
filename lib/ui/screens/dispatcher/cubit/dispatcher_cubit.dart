@@ -1,7 +1,7 @@
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
-part 'dispatcher_state.dart';
 part 'dispatcher_cubit.freezed.dart';
+part 'dispatcher_state.dart';
 
 class DispatcherCubit extends Cubit<DispatcherState> {
   DispatcherCubit() : super(const DispatcherState.initial(opacity: 0));

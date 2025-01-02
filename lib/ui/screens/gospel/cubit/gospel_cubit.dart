@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
-part 'gospel_state.dart';
 part 'gospel_cubit.freezed.dart';
+part 'gospel_state.dart';
 
 class GospelCubit extends Cubit<GospelState> {
   GospelCubit() : super(GospelState());
