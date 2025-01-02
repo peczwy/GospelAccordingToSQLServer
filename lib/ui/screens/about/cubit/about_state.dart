@@ -2,5 +2,5 @@ part of 'about_cubit.dart';
 
 @freezed
 class AboutState with _$AboutState {
-  factory AboutState() = _AboutState;
+  factory AboutState({@Default([]) List<ArticleEntry> articles}) = _AboutState;
 }

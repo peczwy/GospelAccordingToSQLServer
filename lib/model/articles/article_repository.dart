@@ -6,7 +6,7 @@ part 'article_repository.g.dart';
 @freezed
 class ArticleRepository with _$ArticleRepository {
   const factory ArticleRepository({
-    required List<SQLEntry> articles,
+    required List<ArticleEntry> articles,
   }) = _ArticleRepository;
 
   factory ArticleRepository.fromJson(Map<String, Object?> json) => _$ArticleRepositoryFromJson(json);

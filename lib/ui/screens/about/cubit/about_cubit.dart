@@ -10,17 +10,13 @@ class AboutCubit extends Cubit<AboutState> {
   AboutCubit() : super(AboutState());
 
   Future<void> initialize() async {
-    final data = await rootBundle.loadString('data/metadata/sqls.json');
-    final repository = SQLRepository.fromJson(jsonDecode(data));
-  }
-
-  void downloadFile() {
-    final url =
-        'https://raw.githubusercontent.com/peczwy/GospelAccordingToSQLServer/main/public/articles/2016_detjmr.pdf';
-    var html;
-    html.window.open(url, 'PlaceholderName');
-    // html.AnchorElement anchorElement = new html.AnchorElement(href: url);
-    // anchorElement.download = url;
-    // anchorElement.click();
+    final data = await rootBundle.loadString('data/metadata/articles.json');
+    final repository = ArticleRepository.fromJson(jsonDecode(data));
+    final articles = repository.articles.toList();
+    articles.sort((a, b) {
+      final compare = a.year.compareTo(b.year);
+      return compare == 0 ? a.title.compareTo(b.title) : compare;
+    });
+    emit(AboutState(articles: articles));
   }
 }
