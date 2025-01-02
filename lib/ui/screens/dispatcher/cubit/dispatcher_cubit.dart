@@ -10,7 +10,7 @@ class DispatcherCubit extends Cubit<DispatcherState> {
 
   Future<void> initialize() async {
     if (!isClosed) {
-      // unawaited(GifGenerator.instance.prepareLanding());
+      unawaited(GifGenerator.instance.prepare());
       await Future.delayed(Consts.fadeWarmup);
       emit(const DispatcherState.initial(opacity: 1));
       await Future.delayed(Consts.fadeSustain);

@@ -34,12 +34,6 @@ class RadScreen extends StatelessWidget {
                 Builder(
                   builder: (context) => MaterialButton(
                     child: const Icon(Icons.refresh),
-                    onPressed: () async => context.read<RadCubit>().refresh(),
-                  ),
-                ),
-                Builder(
-                  builder: (context) => MaterialButton(
-                    child: const Icon(Icons.add_circle_outline),
                     onPressed: () async => context.read<RadCubit>().next(),
                   ),
                 ),

@@ -12,13 +12,11 @@ class RadCubit extends Cubit<RadState> {
   Future<void> initialize() async {
     emit(
       RadState(
-        gif: await GifGenerator.instance.loadGif(),
+        gif: await GifGenerator.instance.next(),
         timestamp: DateTime.now().millisecondsSinceEpoch,
       ),
     );
   }
 
-  Future<void> refresh() async => initialize();
-
-  Future<void> next() async => GifGenerator.instance.loadGif();
+  Future<void> next() async => initialize();
 }

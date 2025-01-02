@@ -26,7 +26,6 @@ class Gif extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('GIF BUILD');
     return Container(
       color: passpartout ? Colors.black : Colors.transparent,
       child: Padding(
@@ -35,7 +34,6 @@ class Gif extends StatelessWidget {
           create: (_) => GifCubit(length: images.length),
           child: BlocBuilder<GifCubit, int>(
             builder: (context, state) {
-              print('GIF bloc');
               unawaited(context.read<GifCubit>().requestFrame());
               return RawImage(image: images[state]);
             },
