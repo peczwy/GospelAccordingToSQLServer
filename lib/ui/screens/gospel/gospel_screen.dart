@@ -91,6 +91,13 @@ class GospelContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SelectableText(entry.sql ?? '');
+    final TextEditingController controller = TextEditingController();
+    controller.text = entry.sql ?? controller.text;
+    return TextField(
+      controller: controller,
+      maxLines: null,
+      expands: true,
+      keyboardType: TextInputType.multiline,
+    );
   }
 }
