@@ -24,6 +24,26 @@ class DispatcherScreen extends StatelessWidget {
                   ),
                 ),
                 ready: () => _DispatcherContent(),
+                willRoute: (path, gif) {
+                  final cubit = context.read<DispatcherCubit>();
+                  if (gif.isEmpty) {
+                    context.go(path);
+                    cubit.ready();
+                    return const CircularProgressIndicator();
+                  }
+                  return Gif(
+                    key: UniqueKey(),
+                    images: gif,
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    passpartout: true,
+                    fit: BoxFit.fitWidth,
+                    callback: () {
+                      context.go(path);
+                      cubit.ready();
+                    },
+                  );
+                },
               ),
             ),
           ),

@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
 class DispatcherItem extends StatelessWidget {
@@ -19,16 +16,16 @@ class DispatcherItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final image = this.image;
-    return BlocProvider<_DispatcherCubit>(
-      create: (_) => _DispatcherCubit(),
+    return BlocProvider<_DispatcherItemCubit>(
+      create: (_) => _DispatcherItemCubit(),
       child: Builder(
         builder: (context) => MouseRegion(
-          onEnter: (_) => context.read<_DispatcherCubit>().setHoover(true),
-          onExit: (_) => context.read<_DispatcherCubit>().setHoover(false),
+          onEnter: (_) => context.read<_DispatcherItemCubit>().setHoover(true),
+          onExit: (_) => context.read<_DispatcherItemCubit>().setHoover(false),
           child: MaterialButton(
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            onPressed: () => context.go(path),
+            onPressed: () => context.read<DispatcherCubit>().route(path),
             child: SizedBox(
               height: Consts.dispatcherBoxSize,
               width: Consts.dispatcherBoxSize,
@@ -42,7 +39,7 @@ class DispatcherItem extends StatelessWidget {
                           width: Consts.dispatcherIconSize,
                           height: Consts.dispatcherIconSize,
                         ),
-                  BlocBuilder<_DispatcherCubit, bool>(
+                  BlocBuilder<_DispatcherItemCubit, bool>(
                     builder: (_, state) => AnimatedOpacity(
                       opacity: state ? 1 : 0,
                       duration: Consts.quick,
@@ -69,8 +66,8 @@ class DispatcherItem extends StatelessWidget {
   }
 }
 
-class _DispatcherCubit extends Cubit<bool> {
-  _DispatcherCubit() : super(false);
+class _DispatcherItemCubit extends Cubit<bool> {
+  _DispatcherItemCubit() : super(false);
 
   void setHoover(bool hovered) => emit(hovered);
 }

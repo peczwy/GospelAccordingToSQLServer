@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
@@ -18,5 +19,18 @@ class DispatcherCubit extends Cubit<DispatcherState> {
       await Future.delayed(Consts.fadeLinger);
       emit(const DispatcherState.ready());
     }
+  }
+
+  Future<void> route(String path) async {
+    emit(
+      DispatcherState.willRoute(
+        path: path,
+        gif: await GifGenerator.instance.next(),
+      ),
+    );
+  }
+
+  void ready() {
+    emit(const DispatcherState.ready());
   }
 }

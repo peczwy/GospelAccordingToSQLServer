@@ -39,7 +39,7 @@ class GifGenerator {
     return result;
   }
 
-  Future<List<ui.Image>> next({String asset = 'images/landing.gif', int length = 24}) async {
+  Future<List<ui.Image>> next({String asset = 'images/landing.gif', int length = 16}) async {
     final template = await prepare(asset: asset);
     final IGifGenerator strategy = switch (random.nextInt(10)) {
       0 => JaggedGifGenerator(length: length),
