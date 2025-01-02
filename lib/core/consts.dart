@@ -23,6 +23,19 @@ class Consts {
     fontSize: 16,
   );
 
+  static const TextStyle typographyEmoji = TextStyle(
+    fontFamily: 'RobotoMono',
+    color: Colors.black,
+    fontSize: 32,
+  );
+
+  static const TextStyle typographyHeader = TextStyle(
+    fontFamily: 'RobotoMono',
+    color: Colors.black,
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+  );
+
   static const TextStyle typographyDispatcher = TextStyle(
     fontFamily: 'RobotoMono',
     color: Colors.white,

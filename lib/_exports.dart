@@ -1,5 +1,6 @@
 export 'core/consts.dart';
 export 'navigation/router.dart';
+export 'model/about/about_entry.dart';
 export 'model/articles/article_entry.dart';
 export 'model/articles/article_repository.dart';
 export 'model/sqls/sql_entry.dart';
