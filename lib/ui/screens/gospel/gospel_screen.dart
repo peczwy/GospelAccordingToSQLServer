@@ -22,10 +22,13 @@ class GospelScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               }
               final entry = state.registrar[name] ?? state.registrar.entries.first.value;
+
+              /// TODO: better flex
+              final width = MediaQuery.of(context).size.width;
               return Row(
                 children: [
                   Expanded(
-                    flex: 2,
+                    flex: width > 800 ? 2 : 1,
                     child: GospelNavigation(
                       selected: entry,
                       navigation: state.navigation,
@@ -33,7 +36,7 @@ class GospelScreen extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 10,
+                    flex: width > 800 ? 10 : 3,
                     child: GospelContent(entry: entry),
                   )
                 ],
