@@ -19,6 +19,9 @@ class Consts {
 
   static const double fieldsBoxSize = 200;
 
+  static const double posterHeight = 539;
+  static const double posterWidth = 376;
+
   static const TextStyle typography = TextStyle(
     fontFamily: 'RobotoMono',
     color: Colors.black,
