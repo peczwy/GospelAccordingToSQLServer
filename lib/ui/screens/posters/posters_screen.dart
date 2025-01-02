@@ -9,9 +9,9 @@ class PostersScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Consts.color,
-        child: BlocProvider<AboutCubit>(
-          create: (context) => AboutCubit()..initialize(),
-          child: Text('Posters'),
+        child: BlocProvider<PostersCubit>(
+          create: (context) => PostersCubit()..initialize(),
+          child: const Text('Posters'),
         ),
       ),
     );

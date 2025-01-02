@@ -11,7 +11,7 @@ class AboutScreen extends StatelessWidget {
         color: Consts.color,
         child: BlocProvider<AboutCubit>(
           create: (context) => AboutCubit()..initialize(),
-          child: Text('Gospel'),
+          child: const Text('Gospel'),
         ),
       ),
     );

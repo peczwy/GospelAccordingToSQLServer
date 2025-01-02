@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
 part 'rad_cubit.freezed.dart';
@@ -7,7 +8,13 @@ class RadCubit extends Cubit<RadState> {
   RadCubit() : super(RadState());
 
   Future<void> initialize() async {
-    // final data = await rootBundle.loadString('data/metadata/sqls.json');
-    // final repository = SQLRepository.fromJson(jsonDecode(data));
+    emit(
+      RadState(
+        gif: const AssetImage('images/landing.gif'),
+        timestamp: DateTime.now().millisecondsSinceEpoch,
+      ),
+    );
   }
+
+  Future<void> next() async => initialize();
 }
