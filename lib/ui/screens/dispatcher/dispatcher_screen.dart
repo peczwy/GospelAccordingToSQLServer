@@ -37,9 +37,7 @@ class DispatcherScreen extends StatelessWidget {
 class _DispatcherContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+    return const Wrap(
       children: [
         DispatcherItem(
           title: 'ABOUT ME',
@@ -63,7 +61,7 @@ class _DispatcherContent extends StatelessWidget {
         ),
         DispatcherItem(
           title: 'R&D',
-          image: AssetImage('assets/images/icons/ic_chaos.png'),
+          image: AssetImage('assets/images/icons/ic_rad.png'),
           path: Consts.pathToRad,
         ),
       ],

@@ -26,6 +26,7 @@ class DispatcherItem extends StatelessWidget {
           onEnter: (_) => context.read<_DispatcherCubit>().setHoover(true),
           onExit: (_) => context.read<_DispatcherCubit>().setHoover(false),
           child: MaterialButton(
+            hoverColor: Colors.transparent,
             onPressed: () => context.go(path),
             child: SizedBox(
               height: Consts.dispatcherBoxSize,

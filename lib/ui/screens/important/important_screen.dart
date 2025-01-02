@@ -22,9 +22,11 @@ class ImportantScreen extends StatelessWidget {
         ..style.border = 'none',
     );
 
-    return Container(
-      color: Consts.color,
-      child: const HtmlElementView(viewType: elementId),
+    return Scaffold(
+      body: Container(
+        color: Consts.color,
+        child: const HtmlElementView(viewType: elementId),
+      ),
     );
   }
 }
