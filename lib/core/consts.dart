@@ -17,6 +17,8 @@ class Consts {
 
   static const double dispatcherBoxSize = 250;
 
+  static const double fieldsBoxSize = 200;
+
   static const TextStyle typography = TextStyle(
     fontFamily: 'RobotoMono',
     color: Colors.black,

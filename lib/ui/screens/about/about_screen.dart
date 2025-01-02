@@ -103,27 +103,27 @@ class ArticleCard extends StatelessWidget {
     return Card(
       child: Column(
         children: [
-          Text(
+          SelectableText(
             article.title,
             style: Consts.typography,
           ),
-          Text(
+          SelectableText(
             article.book,
             style: Consts.typography,
           ),
-          Text(
+          SelectableText(
             article.year.toString(),
             style: Consts.typography,
           ),
-          Text(
+          SelectableText(
             article.authors,
             style: Consts.typography,
           ),
-          Text(
+          SelectableText(
             article.abstract,
             style: Consts.typography,
           ),
-          Text(
+          SelectableText(
             article.abstract,
             style: Consts.typography,
           ),
@@ -159,7 +159,7 @@ class AboutFields extends StatelessWidget {
     AboutEntry(
       title: 'IT Security',
       subtext: 'preach and teach',
-      emoji: '🦹',
+      emoji: '👮‍♂',
     ),
     AboutEntry(
       title: 'DevOps',
@@ -176,6 +176,11 @@ class AboutFields extends StatelessWidget {
       subtext: '... I guess ...',
       emoji: '🦷',
     ),
+    AboutEntry(
+      title: 'Sewing',
+      subtext: 'Haute Couture and other s*** like that...',
+      emoji: '🧵',
+    ),
   ];
 
   @override
@@ -185,8 +190,8 @@ class AboutFields extends StatelessWidget {
         children: [
           for (final item in items)
             SizedBox(
-              height: Consts.dispatcherBoxSize,
-              width: Consts.dispatcherBoxSize,
+              height: Consts.fieldsBoxSize,
+              width: Consts.fieldsBoxSize,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -213,16 +218,5 @@ class AboutFields extends StatelessWidget {
         ],
       ),
     );
-    // return ListView.builder(
-    //   itemCount: items.length,
-    //   itemBuilder: (context, index) {
-    //     final emoji = items[index].emoji;
-    //     return ListTile(
-    //       trailing: emoji == null ? null : Text(emoji),
-    //       title: Text(items[index].title),
-    //       subtitle: Text(items[index].subtext),
-    //     );
-    //   },
-    // );
   }
 }
