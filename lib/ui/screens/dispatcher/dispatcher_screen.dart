@@ -50,7 +50,7 @@ class _DispatcherContent extends StatelessWidget {
         ),
         DispatcherItem(
           title: 'POSTERS',
-          path: '${Consts.pathToPosters}/x',
+          path: Consts.pathToPosters,
           image: AssetImage('assets/images/icons/ic_posters.png'),
         ),
         DispatcherItem(

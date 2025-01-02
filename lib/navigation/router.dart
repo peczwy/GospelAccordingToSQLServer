@@ -18,7 +18,7 @@ GoRouter createRouter() => GoRouter(
               ),
             ),
             GoRoute(
-              path: '${Consts.pathToPosters}/:name',
+              path: Consts.pathToPosters,
               builder: (context, state) => const PostersScreen(),
             ),
             GoRoute(
