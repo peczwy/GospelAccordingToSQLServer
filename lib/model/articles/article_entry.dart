@@ -5,6 +5,8 @@ part 'article_entry.g.dart';
 
 @freezed
 class ArticleEntry with _$ArticleEntry {
+  const ArticleEntry._();
+
   const factory ArticleEntry({
     required String link,
     required String title,
@@ -15,4 +17,6 @@ class ArticleEntry with _$ArticleEntry {
   }) = _ArticleEntry;
 
   factory ArticleEntry.fromJson(Map<String, Object?> json) => _$ArticleEntryFromJson(json);
+
+  String get text => '$title ($year)';
 }

@@ -76,7 +76,7 @@ class GospelNavigation extends StatelessWidget {
               ),
             ),
             onTap: () => context.go('${Consts.pathToGospel}/${registrar[index].key}'),
-            hoverColor: Color.lerp(Consts.color, Colors.black, 0.1),
+            hoverColor: Consts.color.darken(),
           ),
         );
       },

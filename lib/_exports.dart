@@ -1,3 +1,4 @@
+export 'core/extensions/color_extension.dart';
 export 'core/consts.dart';
 export 'navigation/router.dart';
 export 'model/about/about_entry.dart';

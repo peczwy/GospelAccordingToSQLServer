@@ -100,38 +100,51 @@ class ArticleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          SelectableText(
-            article.title,
-            style: Consts.typography,
+    return SelectionArea(
+      child: Card(
+        color: Consts.color.darken(),
+        child: Padding(
+          padding: EdgeInsets.all(Consts.padding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    article.text,
+                    style: Consts.typography.copyWith(fontWeight: FontWeight.bold),
+                  ),
+                  MaterialButton(
+                    onPressed: () => _download(),
+                    child: const Icon(Icons.download),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text(
+                    article.authors,
+                    style: Consts.typography.copyWith(fontStyle: FontStyle.italic),
+                  ),
+                  const Spacer(),
+                  Text(
+                    article.book,
+                    style: Consts.typography,
+                  ),
+                ],
+              ),
+              SizedBox(height: Consts.padding),
+              Text(
+                'ABSTRACT',
+                style: Consts.typography.copyWith(fontWeight: FontWeight.bold),
+              ),
+              Text(
+                article.abstract,
+                style: Consts.typography,
+              ),
+            ],
           ),
-          SelectableText(
-            article.book,
-            style: Consts.typography,
-          ),
-          SelectableText(
-            article.year.toString(),
-            style: Consts.typography,
-          ),
-          SelectableText(
-            article.authors,
-            style: Consts.typography,
-          ),
-          SelectableText(
-            article.abstract,
-            style: Consts.typography,
-          ),
-          SelectableText(
-            article.abstract,
-            style: Consts.typography,
-          ),
-          MaterialButton(
-            onPressed: () => _download(),
-            child: const Icon(Icons.download),
-          ),
-        ],
+        ),
       ),
     );
   }
