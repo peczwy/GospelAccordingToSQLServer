@@ -12,6 +12,7 @@ class Gif extends StatelessWidget {
     this.height,
     this.passpartout = false,
     this.listener,
+    this.fit,
   });
 
   final List<ui.Image> images;
@@ -24,6 +25,8 @@ class Gif extends StatelessWidget {
 
   final bool passpartout;
 
+  final BoxFit? fit;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,7 +38,12 @@ class Gif extends StatelessWidget {
           child: BlocBuilder<GifCubit, int>(
             builder: (context, state) {
               unawaited(context.read<GifCubit>().requestFrame());
-              return RawImage(image: images[state]);
+              return RawImage(
+                image: images[state],
+                width: width,
+                height: height,
+                fit: fit,
+              );
             },
           ),
         ),
@@ -52,7 +60,7 @@ class GifCubit extends Cubit<int> {
   final bool loop;
 
   Future<void> requestFrame() async {
-    await Future.delayed(const Duration(milliseconds: 43));
+    await Future.delayed(const Duration(milliseconds: 86));
     final next = state + 1;
     if (!loop && next == length) {
       return;

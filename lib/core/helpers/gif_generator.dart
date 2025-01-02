@@ -44,7 +44,7 @@ class GifGenerator {
     final IGifGenerator strategy = switch (random.nextInt(10)) {
       0 => JaggedGifGenerator(length: length),
       1 => RepeaterGifGenerator(length: length, repeats: 5),
-      _ => CutGifGenerator(length: length, cutLength: random.nextInt(15) + 5),
+      _ => CutGifGenerator(length: length, cutLength: random.nextInt(6) + 14),
     };
     return await strategy.generate(template);
   }

@@ -13,9 +13,9 @@ class RadScreen extends StatelessWidget {
         child: BlocProvider<RadCubit>(
           create: (context) => RadCubit()..initialize(),
           child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Stack(
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 BlocBuilder<RadCubit, RadState>(
                   builder: (context, state) {
@@ -25,16 +25,26 @@ class RadScreen extends StatelessWidget {
                         : Gif(
                             key: UniqueKey(),
                             images: gif,
-                            width: Consts.gifSize,
-                            height: Consts.gifSize,
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height,
                             passpartout: true,
+                            fit: BoxFit.fitWidth,
                           );
                   },
                 ),
-                Builder(
-                  builder: (context) => MaterialButton(
-                    child: const Icon(Icons.refresh),
-                    onPressed: () async => context.read<RadCubit>().next(),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: EdgeInsets.all(Consts.padding),
+                    child: Builder(
+                      builder: (context) => MaterialButton(
+                        child: const Icon(
+                          Icons.refresh,
+                          color: Colors.white,
+                        ),
+                        onPressed: () async => context.read<RadCubit>().next(),
+                      ),
+                    ),
                   ),
                 ),
               ],
