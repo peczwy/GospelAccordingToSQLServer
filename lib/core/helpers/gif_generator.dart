@@ -18,8 +18,8 @@ class GifGenerator {
 
   Iterable<img.Image> _cut(List<img.Image> images, int target, int cutLength) {
     final output = <img.Image>[];
-    final span = random.nextInt(min(max(0, target), cutLength)) + 1;
-    final offset = random.nextInt(max(0, images.length - span));
+    final span = random.nextInt(min(max(1, target), cutLength)) + 1;
+    final offset = random.nextInt(max(1, images.length - span));
     for (var i = offset; i < min(offset + span, images.length); ++i) {
       output.add(images[i]);
     }

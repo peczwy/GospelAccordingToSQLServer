@@ -27,13 +27,19 @@ class RadScreen extends StatelessWidget {
                             image: gif,
                             width: Consts.gifSize,
                             height: Consts.gifSize,
-                            // passpartout: true,
+                            passpartout: true,
                           );
                   },
                 ),
                 Builder(
                   builder: (context) => MaterialButton(
                     child: const Icon(Icons.refresh),
+                    onPressed: () async => context.read<RadCubit>().refresh(),
+                  ),
+                ),
+                Builder(
+                  builder: (context) => MaterialButton(
+                    child: const Icon(Icons.add_circle_outline),
                     onPressed: () async => context.read<RadCubit>().next(),
                   ),
                 ),

@@ -10,7 +10,6 @@ class RadCubit extends Cubit<RadState> {
   RadCubit() : super(RadState());
 
   Future<void> initialize() async {
-    // unawaited(GifGenerator.instance.landing());
     emit(
       RadState(
         gif: await GifGenerator.instance.current,
@@ -19,5 +18,7 @@ class RadCubit extends Cubit<RadState> {
     );
   }
 
-  Future<void> next() async => initialize();
+  Future<void> refresh() async => initialize();
+
+  Future<void> next() async => GifGenerator.instance.landing();
 }
