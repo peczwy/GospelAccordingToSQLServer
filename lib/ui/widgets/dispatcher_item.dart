@@ -27,14 +27,13 @@ class DispatcherItem extends StatelessWidget {
           onExit: (_) => context.read<_DispatcherCubit>().setHoover(false),
           child: MaterialButton(
             hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
             onPressed: () => context.go(path),
             child: SizedBox(
               height: Consts.dispatcherBoxSize,
               width: Consts.dispatcherBoxSize,
               child: Stack(
                 alignment: Alignment.center,
-                // mainAxisAlignment: MainAxisAlignment.start,
-                // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   image == null
                       ? const Icon(Icons.question_mark)
