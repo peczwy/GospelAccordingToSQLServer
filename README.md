@@ -1,19 +1,11 @@
-# gospel_at_flutter
+## Info
 
-Website for Gospel
+Proof-of-concept / checking how the Flutter Web works in 2025. The site contains some scripts
+that are used to hunt down some bugs in the company I work for.
 
-## Getting Started
+## Compiling
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Well... the site compiles as any flutter project.
 
 ## Generating models
 `dart run build_runner build`
