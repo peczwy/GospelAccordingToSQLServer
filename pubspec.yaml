@@ -63,36 +63,17 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/data/sqls/dev/delete_1.sql
-   - assets/data/sqls/dev/template_recreate_clustered_index_1.sql
-   - assets/data/sqls/ops/opened_transactions_1.sql
-   - assets/data/sqls/ops/size_1.sql
-   - assets/data/sqls/ops/stats_1.sql
-   - assets/data/sqls/ops/waits_1.sql
-   - assets/data/sqls/tests/rcsi_frag.sql
-   - assets/data/metadata/articles.json
-   - assets/data/metadata/sqls.json
-   - assets/images/icons/ic_about.png
-   - assets/images/icons/ic_chaos.png
-   - assets/images/icons/ic_gospel.png
-   - assets/images/icons/ic_posters.png
-   - assets/images/icons/ic_rad.png
-   - assets/images/posters/Attak_1.png
-   - assets/images/posters/Attak_2.png
-   - assets/images/posters/Blue.png
-   - assets/images/posters/Coil_Saves.png
-   - assets/images/posters/Disturb.jpg
-   - assets/images/posters/Easy.png
-   - assets/images/posters/Fonder_1.png
-   - assets/images/posters/Fonder_2.png
-   - assets/images/posters/NSFW.png
-   - assets/images/posters/SP_1.jpg
-   - assets/images/posters/SP_2.jpg
-   - assets/images/posters/Vanishing.png
-   - assets/images/posters/Violence.png
-   - assets/images/posters/Where.png
-   - assets/images/eye.png
-   - assets/images/landing.gif
+   - assets/
+   - assets/data/
+   - assets/data/metadata/
+   - assets/data/sqls/
+   - assets/data/sqls/dev/
+   - assets/data/sqls/ops/
+   - assets/data/sqls/tests/
+   - assets/images/
+   - assets/images/gifs/
+   - assets/images/icons/
+   - assets/images/posters/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
