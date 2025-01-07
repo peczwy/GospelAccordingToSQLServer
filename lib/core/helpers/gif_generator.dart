@@ -14,44 +14,55 @@ class GifGenerator {
 
   final random = Random();
 
-  final Map<String, Future<List<ui.Image>>> _cache = {};
+  final Map<String, Future<List<ui.Image>>> cache = {};
 
   Future<List<ui.Image>> _prepare({required String asset}) async {
-    final bytes = await rootBundle.load(asset);
-    final frames = <ui.Image>[];
+    try {
+      final bytes = await rootBundle.load(asset);
+      final frames = <ui.Image>[];
 
-    final codec = await ui.instantiateImageCodec(bytes.buffer.asUint8List());
+      final codec = await ui.instantiateImageCodec(bytes.buffer.asUint8List());
 
-    final frameCount = codec.frameCount;
-    for (int i = 0; i < frameCount; i++) {
-      final frame = await codec.getNextFrame();
-      frames.add(frame.image);
+      final frameCount = codec.frameCount;
+      for (int i = 0; i < frameCount; i++) {
+        final frame = await codec.getNextFrame();
+        frames.add(frame.image);
+      }
+      return frames;
+    } catch (e, _) {
+      return [];
     }
-    return frames;
   }
 
-  Future<List<ui.Image>> prepare({String asset = 'images/landing.gif'}) async {
-    var result = _cache[asset];
+  Future<void> preload({required int count}) async {
+    for (var i = 0; i < count; ++i) {
+      await prepare(order: i);
+    }
+  }
+
+  Future<List<ui.Image>> prepare({int order = 1}) async {
+    final asset = 'images/gifs/$order.gif';
+    var result = cache[asset];
     if (result == null) {
       result = _prepare(asset: asset);
-      _cache[asset] = result;
+      cache[asset] = result;
     }
     return result;
   }
 
-  Future<List<ui.Image>> next({String asset = 'images/landing.gif', int length = 16}) async {
-    final template = await prepare(asset: asset);
+  Future<List<ui.Image>> next({int order = 1, int length = 16}) async {
+    final template = await prepare(order: order);
     final IGifGenerator strategy = switch (random.nextInt(10)) {
       0 => JaggedGifGenerator(length: length),
-      1 => RepeaterGifGenerator(length: length, repeats: 5),
+      1 => CutGifGenerator(length: length, cutLength: random.nextInt(6) + 14, rerollTemplate: false),
       _ => CutGifGenerator(length: length, cutLength: random.nextInt(6) + 14),
     };
-    return await strategy.generate(template);
+    return await strategy.generate(this);
   }
 }
 
 abstract interface class IGifGenerator {
-  Future<List<ui.Image>> generate(List<ui.Image> template);
+  Future<List<ui.Image>> generate(GifGenerator registrar);
 }
 
 class JaggedGifGenerator implements IGifGenerator {
@@ -60,9 +71,15 @@ class JaggedGifGenerator implements IGifGenerator {
   final int length;
   final random = Random();
   @override
-  Future<List<ui.Image>> generate(List<ui.Image> template) async {
+  Future<List<ui.Image>> generate(GifGenerator registrar) async {
     final frames = <ui.Image>[];
+    final keysCount = registrar.cache.length;
     for (var i = 0; i < length; ++i) {
+      final template = await registrar.prepare(order: random.nextInt(keysCount));
+      if (template.isEmpty) {
+        /// This means we have some inconsistency in gifs folder i.e. missing ID
+        return frames;
+      }
       frames.add(template[random.nextInt(template.length)]);
     }
     return frames;
@@ -74,6 +91,7 @@ class CutGifGenerator implements IGifGenerator {
     required this.length,
     this.maxCount = 20,
     this.cutLength = 20,
+    this.rerollTemplate = true,
   });
 
   final int length;
@@ -81,6 +99,8 @@ class CutGifGenerator implements IGifGenerator {
   final int maxCount;
 
   final int cutLength;
+
+  final bool rerollTemplate;
 
   final random = Random();
 
@@ -95,37 +115,28 @@ class CutGifGenerator implements IGifGenerator {
   }
 
   @override
-  Future<List<ui.Image>> generate(List<ui.Image> template) async {
+  Future<List<ui.Image>> generate(GifGenerator registrar) async {
     final frames = <ui.Image>[];
     var count = 0;
+    final keysCount = registrar.cache.length;
+    var template = await registrar.prepare(order: random.nextInt(keysCount));
+    var cut = _cut(template, length - frames.length, cutLength);
+    if (template.isEmpty || cut.isEmpty) {
+      /// This means we have some inconsistency in gifs folder i.e. missing ID
+      return frames;
+    }
     while (frames.length < length && count < maxCount) {
       count++;
-      frames.addAll(_cut(template, length - frames.length, cutLength));
-    }
-    return frames;
-  }
-}
+      frames.addAll(cut);
+      if (rerollTemplate) {
+        template = await registrar.prepare(order: random.nextInt(keysCount));
 
-class RepeaterGifGenerator implements IGifGenerator {
-  RepeaterGifGenerator({
-    required this.length,
-    this.repeats = 20,
-  });
-
-  final int length;
-
-  final int repeats;
-
-  final random = Random();
-
-  @override
-  Future<List<ui.Image>> generate(List<ui.Image> template) async {
-    final cutLength = (length / repeats).round() + 1;
-    final generator = CutGifGenerator(length: cutLength, cutLength: cutLength, maxCount: cutLength);
-    final toRepeat = await generator.generate(template);
-    final frames = <ui.Image>[];
-    while (frames.length < length) {
-      frames.addAll(toRepeat);
+        cut = _cut(template, length - frames.length, cutLength);
+        if (template.isEmpty || cut.isEmpty) {
+          /// This means we have some inconsistency in gifs folder i.e. missing ID
+          return frames;
+        }
+      }
     }
     return frames;
   }

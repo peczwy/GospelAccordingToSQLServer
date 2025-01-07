@@ -20,7 +20,7 @@ class RadCubit extends Cubit<RadState> {
 
   Future<void> next() async => emit(
         RadState(
-          gif: await GifGenerator.instance.next(),
+          gif: await GifGenerator.instance.next(length: 32),
           timestamp: DateTime.now().millisecondsSinceEpoch,
         ),
       );

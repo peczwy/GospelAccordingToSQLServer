@@ -41,11 +41,17 @@ class Gif extends StatelessWidget {
           child: BlocBuilder<GifCubit, int>(
             builder: (context, state) {
               unawaited(context.read<GifCubit>().requestFrame());
-              return RawImage(
-                image: images[state],
-                width: width,
-                height: height,
-                fit: fit,
+              return ColorFiltered(
+                colorFilter: const ColorFilter.mode(
+                  Colors.black,
+                  BlendMode.saturation,
+                ),
+                child: RawImage(
+                  image: images[state],
+                  width: width,
+                  height: height,
+                  fit: fit,
+                ),
               );
             },
           ),
