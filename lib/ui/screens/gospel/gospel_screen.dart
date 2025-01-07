@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gospel_at_flutter/_exports.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
+import 'dart:html' as html;
 
 class GospelScreen extends StatelessWidget {
   const GospelScreen({
@@ -96,11 +98,64 @@ class GospelContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController controller = TextEditingController();
     controller.text = entry.sql ?? controller.text;
-    return TextField(
-      controller: controller,
-      maxLines: null,
-      expands: true,
-      keyboardType: TextInputType.multiline,
+    return SelectionArea(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'DESCRIPTION',
+            textAlign: TextAlign.justify,
+            style: Consts.typographyHeader,
+          ),
+          Text(
+            entry.description,
+            textAlign: TextAlign.justify,
+            style: Consts.typography,
+          ),
+          if (entry.source != null) SizedBox(height: Consts.padding),
+          if (entry.source != null)
+            const Text(
+              'SOURCE',
+              textAlign: TextAlign.justify,
+              style: Consts.typographyHeader,
+            ),
+          if (entry.source != null) Source(link: entry.source!),
+          SizedBox(height: Consts.padding),
+          const Text(
+            'SCRIPT',
+            textAlign: TextAlign.justify,
+            style: Consts.typographyHeader,
+          ),
+          Expanded(
+            child: TextField(
+              controller: controller,
+              maxLines: null,
+              expands: true,
+              keyboardType: TextInputType.multiline,
+            ),
+          ),
+        ],
+      ),
     );
   }
+}
+
+class Source extends StatelessWidget {
+  Source({
+    super.key,
+    required this.link,
+  });
+
+  final String link;
+
+  @override
+  Widget build(BuildContext context) => InkWell(
+        child: Text(
+          link,
+          textAlign: TextAlign.justify,
+          style: Consts.typography,
+        ),
+        onTap: () => html.window.open(link, 'new tab'),
+      );
 }

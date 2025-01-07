@@ -12,7 +12,7 @@
       "type": "development",
       "title": "Buffer Clean",
       "description": "The most important script",
-      "sql": "DBCC DROPCLEANBUFFERS\nGO\nDBCC FREEPROCCACHE\nGO"
+      "sql": "DBCC DROPCLEANBUFFERS\nGO\n\nDBCC FREEPROCCACHE\nGO"
     },
     {
       "key": "safe_delete",
