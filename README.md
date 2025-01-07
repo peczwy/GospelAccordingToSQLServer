@@ -9,3 +9,7 @@ Well... the site compiles as any flutter project.
 
 ## Generating models
 `dart run build_runner build`
+
+## Deploying
+Just run the powershell script:
+`.\deploy.ps1`
