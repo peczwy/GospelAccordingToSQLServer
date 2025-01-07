@@ -18,7 +18,7 @@ class DispatcherScreen extends StatelessWidget {
                   opacity: opacity,
                   duration: Consts.fadeLinger,
                   child: Image.asset(
-                    'images/eye.png',
+                    'assets/images/eye.png',
                     width: Consts.posterWidth,
                     height: Consts.posterHeight,
                   ),

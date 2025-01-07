@@ -1,10 +1,12 @@
 #!/usr/bin/env sh
 
+# README: Unused script - as I'm compiling everything on the Windows
+
 # abort on errors
 set -e
 
 # build
-flutter build web
+flutter build web --base-href=/GospelAccordingToSQLServer/
 
 # navigate into the build output directory
 cd build\web

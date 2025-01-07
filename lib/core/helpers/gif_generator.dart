@@ -41,7 +41,7 @@ class GifGenerator {
   }
 
   Future<List<ui.Image>> prepare({int order = 1}) async {
-    final asset = 'images/gifs/$order.gif';
+    final asset = 'assets/images/gifs/$order.gif';
     var result = cache[asset];
     if (result == null) {
       result = _prepare(asset: asset);

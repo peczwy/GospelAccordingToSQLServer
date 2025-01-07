@@ -1,8 +1,8 @@
 # build
-flutter build web
+flutter build web --base-href=/GospelAccordingToSQLServer/
 
 # copy jekyll config
-Copy-Item .\_config.yml -Destination .\dist\_config.yml
+Copy-Item .\_config.yml -Destination .\build\web\_config.yml
 
 # navigate into the build output directory
 cd build\web
