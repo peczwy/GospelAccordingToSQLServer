@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 
@@ -79,11 +80,12 @@ class _DispatcherContent extends StatelessWidget {
             image: AssetImage('assets/images/icons/ic_chaos.png'),
             path: Consts.pathToImportant,
           ),
-          DispatcherItem(
-            title: 'R&D',
-            image: AssetImage('assets/images/icons/ic_rad.png'),
-            path: Consts.pathToRad,
-          ),
+          if (kDebugMode)
+            DispatcherItem(
+              title: 'R&D',
+              image: AssetImage('assets/images/icons/ic_rad.png'),
+              path: Consts.pathToRad,
+            ),
         ],
       ),
     );

@@ -52,7 +52,7 @@ class GifGenerator {
 
   Future<List<ui.Image>> next({int order = 1, int length = 16}) async {
     final template = await prepare(order: order);
-    final IGifGenerator strategy = switch (random.nextInt(10)) {
+    final IGifGenerator strategy = switch (random.nextInt(3)) {
       0 => JaggedGifGenerator(length: length),
       1 => CutGifGenerator(length: length, cutLength: random.nextInt(6) + 14, rerollTemplate: false),
       _ => CutGifGenerator(length: length, cutLength: random.nextInt(6) + 14),

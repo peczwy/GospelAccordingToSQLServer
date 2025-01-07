@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'dart:ui' as ui show Image;
 import 'package:flutter/material.dart';
@@ -68,13 +69,19 @@ class GifCubit extends Cubit<int> {
     this.callback,
   }) : super(0);
 
+  late final int fps = Random().nextInt(32) + 16;
+
+  late final int sleep = 1000 ~/ fps;
+
+  late final Duration duration = Duration(milliseconds: sleep);
+
   final Function()? callback;
   final int length;
 
   final bool loop;
 
   Future<void> requestFrame() async {
-    await Future.delayed(const Duration(milliseconds: 86));
+    await Future.delayed(duration);
     final next = state + 1;
     if (!loop && next == length) {
       final callback = this.callback;
