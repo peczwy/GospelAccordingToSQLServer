@@ -16,7 +16,7 @@ class AboutScreen extends StatelessWidget {
           child: BlocBuilder<AboutCubit, AboutState>(
             builder: (context, state) {
               if (state.articles.isEmpty) {
-                return const CircularProgressIndicator();
+                return const Center(child: CircularProgressIndicator());
               }
               return SingleChildScrollView(
                 child: Column(

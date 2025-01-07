@@ -10,7 +10,7 @@ class GospelCubit extends Cubit<GospelState> {
   GospelCubit() : super(GospelState());
 
   Future<void> initialize() async {
-    final data = await rootBundle.loadString('data/metadata/sqls.json');
+    final data = await rootBundle.loadString('assets/data/metadata/sqls.json');
     final repository = SQLRepository.fromJson(jsonDecode(data));
     final navigation = <String, List<SQLEntry>>{};
     final registrar = <String, SQLEntry>{};

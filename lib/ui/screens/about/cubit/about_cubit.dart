@@ -10,7 +10,7 @@ class AboutCubit extends Cubit<AboutState> {
   AboutCubit() : super(AboutState());
 
   Future<void> initialize() async {
-    final data = await rootBundle.loadString('data/metadata/articles.json');
+    final data = await rootBundle.loadString('assets/data/metadata/articles.json');
     final repository = ArticleRepository.fromJson(jsonDecode(data));
     final articles = repository.articles.toList();
     articles.sort((a, b) {
