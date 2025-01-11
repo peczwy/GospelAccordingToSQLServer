@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
@@ -32,8 +34,9 @@ class DispatcherScreen extends StatelessWidget {
                     cubit.ready();
                     return const CircularProgressIndicator();
                   }
-                  return Gif(
+                  return OverlaidGif(
                     key: UniqueKey(),
+                    fps: Random().nextInt(32) + 16,
                     images: gif,
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,

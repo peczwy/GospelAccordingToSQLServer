@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'dart:ui' as ui show Image;
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
@@ -11,12 +9,15 @@ class Gif extends StatelessWidget {
     required this.images,
     this.width,
     this.height,
-    this.passpartout = false,
     this.callback,
     this.fit,
+    this.fps = 30,
+    this.filter = const ColorFilter.mode(Colors.transparent, BlendMode.srcIn),
   });
 
   final List<ui.Image> images;
+
+  final int fps;
 
   final Function()? callback;
 
@@ -24,39 +25,34 @@ class Gif extends StatelessWidget {
 
   final double? height;
 
-  final bool passpartout;
-
   final BoxFit? fit;
+
+  final ColorFilter filter;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: passpartout ? Colors.black : Colors.transparent,
-      child: Padding(
-        padding: EdgeInsets.all(passpartout ? 100 : 0),
-        child: BlocProvider<GifCubit>(
-          create: (_) => GifCubit(
-            length: images.length,
-            callback: callback,
-          ),
-          child: BlocBuilder<GifCubit, int>(
-            builder: (context, state) {
-              unawaited(context.read<GifCubit>().requestFrame());
-              return ColorFiltered(
-                colorFilter: const ColorFilter.mode(
-                  Colors.black,
-                  BlendMode.saturation,
-                ),
-                child: RawImage(
-                  image: images[state],
-                  width: width,
-                  height: height,
-                  fit: fit,
-                ),
-              );
-            },
-          ),
-        ),
+    return BlocProvider<GifCubit>(
+      create: (_) => GifCubit(
+        length: images.length,
+        callback: callback,
+        fps: fps,
+      ),
+      child: BlocBuilder<GifCubit, int>(
+        builder: (context, state) {
+          unawaited(context.read<GifCubit>().requestFrame());
+          return ColorFiltered(
+            colorFilter: const ColorFilter.mode(
+              Colors.black,
+              BlendMode.saturation,
+            ),
+            child: RawImage(
+              image: images[state],
+              width: width,
+              height: height,
+              fit: fit,
+            ),
+          );
+        },
       ),
     );
   }
@@ -65,11 +61,12 @@ class Gif extends StatelessWidget {
 class GifCubit extends Cubit<int> {
   GifCubit({
     required this.length,
+    this.fps = 30,
     this.loop = false,
     this.callback,
   }) : super(0);
 
-  late final int fps = Random().nextInt(32) + 16;
+  final int fps;
 
   late final int sleep = 1000 ~/ fps;
 

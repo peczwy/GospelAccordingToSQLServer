@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 import 'package:gospel_at_flutter/ui/screens/rad/cubit/rad_cubit.dart';
@@ -32,7 +34,7 @@ class RadScreen extends StatelessWidget {
                         ),
                       ),
                     )
-                  : Gif(
+                  : OverlaidGif(
                       key: UniqueKey(),
                       images: gif,
                       width: MediaQuery.of(context).size.width,
@@ -40,6 +42,7 @@ class RadScreen extends StatelessWidget {
                       passpartout: true,
                       fit: BoxFit.fitWidth,
                       callback: () => context.read<RadCubit>().hide(),
+                      fps: Random().nextInt(32) + 16,
                     );
             },
           ),
