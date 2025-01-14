@@ -96,9 +96,9 @@ class GospelContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = FormattedTextEditingController(
+    final controller = RegexTextEditingController(
       styles: TextPartStyleDefinitions(
-        definitionList: [
+        definitions: [
           TextPartStyleDefinition(
             pattern: r'--.+',
             style: const TextStyle(fontStyle: FontStyle.italic, color: Colors.grey),
@@ -142,8 +142,10 @@ class GospelContent extends StatelessWidget {
             style: Consts.typographyHeader,
           ),
           Expanded(
-            child: FormattedTextArea(
+            child: TextField(
               controller: controller,
+              maxLines: null,
+              expands: true,
               keyboardType: TextInputType.multiline,
             ),
           ),

@@ -11,36 +11,49 @@ class RadScreen extends StatelessWidget {
       body: Container(
         color: Consts.color,
         child: BlocProvider<RadCubit>(
-          create: (context) => RadCubit(),
+          create: (context) => RadCubit()..initialize(),
           child: BlocBuilder<RadCubit, RadState>(
             builder: (context, state) {
-              final gif = state.gif;
-              return gif.isEmpty
-                  ? Align(
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: EdgeInsets.all(Consts.padding),
-                        child: Builder(
-                          builder: (context) => MaterialButton(
-                            child: const Icon(
-                              Icons.play_arrow,
-                              color: Colors.black,
-                              size: Consts.fieldsBoxSize,
-                            ),
-                            onPressed: () async => context.read<RadCubit>().next(),
-                          ),
-                        ),
-                      ),
-                    )
-                  : Gif(
-                      key: UniqueKey(),
-                      images: gif,
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      passpartout: true,
-                      fit: BoxFit.fitWidth,
-                      callback: () => context.read<RadCubit>().hide(),
-                    );
+              final controller = HtmlTextEditingController(
+                style: const TextStyle(color: Colors.black),
+                anchorStyle: const TextStyle(color: Colors.blue),
+              );
+              controller.text = state.htmlInput;
+              return TextField(
+                controller: controller,
+                maxLines: null,
+                expands: true,
+                keyboardType: TextInputType.multiline,
+              );
+
+              /// GIFS RAD:
+              // final gif = state.gif;
+              // return gif.isEmpty
+              //     ? Align(
+              //         alignment: Alignment.center,
+              //         child: Padding(
+              //           padding: EdgeInsets.all(Consts.padding),
+              //           child: Builder(
+              //             builder: (context) => MaterialButton(
+              //               child: const Icon(
+              //                 Icons.play_arrow,
+              //                 color: Colors.black,
+              //                 size: Consts.fieldsBoxSize,
+              //               ),
+              //               onPressed: () async => context.read<RadCubit>().next(),
+              //             ),
+              //           ),
+              //         ),
+              //       )
+              //     : Gif(
+              //         key: UniqueKey(),
+              //         images: gif,
+              //         width: MediaQuery.of(context).size.width,
+              //         height: MediaQuery.of(context).size.height,
+              //         passpartout: true,
+              //         fit: BoxFit.fitWidth,
+              //         callback: () => context.read<RadCubit>().hide(),
+              //       );
             },
           ),
         ),
