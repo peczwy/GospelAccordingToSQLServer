@@ -19,6 +19,9 @@ class HtmlMapper {
   /// Styl anochorów
   final TextStyle anchorStyle;
 
+  // final TextStyle invisibleStyle = const TextStyle(color: Colors.red, fontSize: 0);
+  final TextStyle invisibleStyle = const TextStyle(color: Colors.red);
+
   TextSpan get span => _parseNode(parseFragment(html), style: style);
 
   TextSpan _parseNode(
@@ -37,7 +40,12 @@ class HtmlMapper {
           'u' => _buildTextSpan(child, style: style.copyWith(decoration: TextDecoration.underline)),
           'a' => _buildLinkSpan(child, child.attributes['href'], style: anchorStyle),
           'ul' || 'ol' => TextSpan(
-              children: [TextSpan(text: '\n', style: style), ..._buildList(child, style: style)],
+              children: [
+                TextSpan(text: '<${child.localName}>', style: invisibleStyle),
+                TextSpan(text: '\n', style: style),
+                ..._buildList(child, style: style),
+                TextSpan(text: '</${child.localName}>', style: invisibleStyle),
+              ],
             ),
           'li' => _buildTextSpan(child, prefix: '• ', style: style),
           'br' => TextSpan(text: '\n', style: style),
@@ -58,12 +66,18 @@ class HtmlMapper {
     String? prefix,
   }) {
     return TextSpan(
-      text: prefix ?? '',
       children: [
-        if (breakline) const TextSpan(text: '\n'),
-        _parseNode(element, style: style),
+        TextSpan(text: '<${element.localName}>', style: invisibleStyle),
+        TextSpan(
+          // text: prefix ?? '',
+          children: [
+            // if (breakline) const TextSpan(text: '\n'),
+            _parseNode(element, style: style),
+          ],
+          style: style,
+        ),
+        TextSpan(text: '</${element.localName}>', style: invisibleStyle),
       ],
-      style: style,
     );
   }
 
@@ -72,9 +86,16 @@ class HtmlMapper {
     String? href, {
     required TextStyle style,
   }) {
+    final attributes = element.attributes.entries.map((e) => '${e.key.toString()}=\"${e.value}\"').join(' ');
     return TextSpan(
-      text: element.text,
-      style: anchorStyle,
+      children: [
+        TextSpan(text: '<${element.localName} $attributes>', style: invisibleStyle),
+        TextSpan(
+          text: element.text,
+          style: anchorStyle,
+        ),
+        TextSpan(text: '</${element.localName}>', style: invisibleStyle),
+      ],
     );
   }
 
@@ -87,7 +108,7 @@ class HtmlMapper {
     for (var child in listElement.children) {
       items.add(listElement.localName == 'ol'
           ? _buildTextSpan(child, prefix: '$index. ', style: style)
-          : _buildTextSpan(child, prefix: '• ', style: style));
+          : _buildTextSpan(child, prefix: '•', style: style));
       index++;
       items.add(TextSpan(text: '\n', style: style));
     }

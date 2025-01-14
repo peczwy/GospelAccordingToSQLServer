@@ -17,4 +17,20 @@ class HtmlTextEditingController extends TextEditingController {
     required bool withComposing,
   }) =>
       HtmlMapper(html: text, style: this.style, anchorStyle: anchorStyle).span;
+
+  @override
+  set text(String newText) {
+    value = value.copyWith(
+      text: HtmlMapper(html: newText, style: style, anchorStyle: anchorStyle).span.toPlainText(),
+      selection: const TextSelection.collapsed(offset: -1),
+      composing: TextRange.empty,
+    );
+  }
+
+  @override
+  set value(TextEditingValue newValue) {
+    super.value = newValue.copyWith(
+      text: HtmlMapper(html: newValue.text, style: style, anchorStyle: anchorStyle).span.toPlainText(),
+    );
+  }
 }
