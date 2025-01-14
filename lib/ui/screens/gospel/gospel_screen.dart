@@ -96,7 +96,21 @@ class GospelContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController controller = TextEditingController();
+    final controller = FormattedTextEditingController(
+      styles: TextPartStyleDefinitions(
+        definitionList: [
+          TextPartStyleDefinition(
+            pattern: r'--.+',
+            style: const TextStyle(fontStyle: FontStyle.italic, color: Colors.grey),
+          ),
+          TextPartStyleDefinition(
+            pattern:
+                r'(?<=\W|^)(SELECT|FROM|WHERE|ON|JOIN|AND|OR|GROUP|BY|HAVING|ORDER|INNER|OUTER|LEFT|RIGHT|JOIN|IF|EXISTS|NOT|CREATE|UPDATE|DELETE|INDEX|GO|GOTO|DBCC|ALTER|DROP|WITH|AS|CROSS|APPLY|DATABASE|SET|WITH|DECLARE|UNION|INTERSECT|EXCEPT|ALL|INSERT|PRIMARY|FOREIGN|KEY|UNIQUE|CONSTRAINT|BEGIN|END|TRY|CATCH|TABLE|VIEW|ADD|REFERENCES|USE|ASC|DESC)(?=\W|$)',
+            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),
+          ),
+        ],
+      ),
+    );
     controller.text = entry.sql ?? controller.text;
     return SelectionArea(
       child: Column(
@@ -128,10 +142,8 @@ class GospelContent extends StatelessWidget {
             style: Consts.typographyHeader,
           ),
           Expanded(
-            child: TextField(
+            child: FormattedTextArea(
               controller: controller,
-              maxLines: null,
-              expands: true,
               keyboardType: TextInputType.multiline,
             ),
           ),

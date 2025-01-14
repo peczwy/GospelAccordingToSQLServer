@@ -23,15 +23,15 @@
     },
     {
       "key": "recreate_clustered_index",
-      "title": "ClusteredIndex recreate",
+      "title": "Clustered Index recreate",
       "type": "development",
       "description": "Recreates the clustered index of the table",
       "sql_file": "assets/data/sqls/dev/template_recreate_clustered_index_1.sql"
     },
     {
       "key": "metadata_views",
-      "title": "View metadata",
-      "type": "development",
+      "title": "Metadata: VIEW",
+      "type": "metadata",
       "description": "Obtains metadata for VIEW. It includes columns, referenced tables and definition",
       "sql_file": "assets/data/sqls/dev/metadata_views_1.sql"
     },
