@@ -8,6 +8,7 @@ class HtmlMapper {
     required this.html,
     required this.style,
     required this.anchorStyle,
+    required this.tagStyle,
   });
 
   /// Wejściowy HTML
@@ -19,8 +20,7 @@ class HtmlMapper {
   /// Styl anochorów
   final TextStyle anchorStyle;
 
-  // final TextStyle invisibleStyle = const TextStyle(color: Colors.red, fontSize: 0);
-  final TextStyle invisibleStyle = const TextStyle(color: Colors.red);
+  final TextStyle tagStyle;
 
   TextSpan get span => _parseNode(parseFragment(html), style: style);
 
@@ -41,10 +41,10 @@ class HtmlMapper {
           'a' => _buildLinkSpan(child, child.attributes['href'], style: anchorStyle),
           'ul' || 'ol' => TextSpan(
               children: [
-                TextSpan(text: '<${child.localName}>', style: invisibleStyle),
+                TextSpan(text: '<${child.localName}>', style: tagStyle),
                 TextSpan(text: '\n', style: style),
                 ..._buildList(child, style: style),
-                TextSpan(text: '</${child.localName}>', style: invisibleStyle),
+                TextSpan(text: '</${child.localName}>', style: tagStyle),
               ],
             ),
           'li' => _buildTextSpan(child, prefix: '• ', style: style),
@@ -67,7 +67,7 @@ class HtmlMapper {
   }) {
     return TextSpan(
       children: [
-        TextSpan(text: '<${element.localName}>', style: invisibleStyle),
+        TextSpan(text: '<${element.localName}>', style: tagStyle),
         TextSpan(
           // text: prefix ?? '',
           children: [
@@ -76,7 +76,7 @@ class HtmlMapper {
           ],
           style: style,
         ),
-        TextSpan(text: '</${element.localName}>', style: invisibleStyle),
+        TextSpan(text: '</${element.localName}>', style: tagStyle),
       ],
     );
   }
@@ -89,12 +89,12 @@ class HtmlMapper {
     final attributes = element.attributes.entries.map((e) => '${e.key.toString()}=\"${e.value}\"').join(' ');
     return TextSpan(
       children: [
-        TextSpan(text: '<${element.localName} $attributes>', style: invisibleStyle),
+        TextSpan(text: '<${element.localName} $attributes>', style: tagStyle),
         TextSpan(
           text: element.text,
           style: anchorStyle,
         ),
-        TextSpan(text: '</${element.localName}>', style: invisibleStyle),
+        TextSpan(text: '</${element.localName}>', style: tagStyle),
       ],
     );
   }
