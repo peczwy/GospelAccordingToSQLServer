@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'dart:ui' as ui show Image;
+
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
 

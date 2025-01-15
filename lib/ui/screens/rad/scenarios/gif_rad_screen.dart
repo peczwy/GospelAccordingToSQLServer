@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
-import 'package:gospel_at_flutter/ui/screens/rad/cubit/rad_cubit.dart';
+import 'package:gospel_at_flutter/ui/screens/rad/scenarios/cubit/gif_rad_cubit.dart';
 
 class GifRadScreen extends StatelessWidget {
   const GifRadScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<RadCubit>(
-      create: (context) => RadCubit()..initialize(),
-      child: BlocBuilder<RadCubit, RadState>(
+    return BlocProvider<GifRadCubit>(
+      create: (context) => GifRadCubit()..initialize(),
+      child: BlocBuilder<GifRadCubit, GifRadState>(
         builder: (context, state) {
           /// GIFS RAD:
           final gif = state.gif;
@@ -25,7 +25,7 @@ class GifRadScreen extends StatelessWidget {
                           color: Colors.black,
                           size: Consts.fieldsBoxSize,
                         ),
-                        onPressed: () async => context.read<RadCubit>().next(),
+                        onPressed: () async => context.read<GifRadCubit>().next(),
                       ),
                     ),
                   ),
@@ -37,7 +37,7 @@ class GifRadScreen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height,
                   passpartout: true,
                   fit: BoxFit.fitWidth,
-                  callback: () => context.read<RadCubit>().hide(),
+                  callback: () => context.read<GifRadCubit>().hide(),
                 );
         },
       ),

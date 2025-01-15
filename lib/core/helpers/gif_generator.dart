@@ -3,9 +3,6 @@ import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:flutter/services.dart';
-import 'dart:ui' as ui show Image;
-
-import 'package:gospel_at_flutter/_exports.dart';
 
 class GifGenerator {
   GifGenerator._();

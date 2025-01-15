@@ -1,7 +1,8 @@
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/_exports.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
-import 'dart:html' as html;
 
 class GospelScreen extends StatelessWidget {
   const GospelScreen({
