@@ -1,4 +1,5 @@
 # build
+dart run build_runner build
 flutter build web --base-href=/GospelAccordingToSQLServer/
 
 # copy jekyll config

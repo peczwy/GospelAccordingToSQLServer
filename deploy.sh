@@ -6,6 +6,7 @@
 set -e
 
 # build
+dart run build_runner build
 flutter build web --base-href=/GospelAccordingToSQLServer/
 
 # navigate into the build output directory
