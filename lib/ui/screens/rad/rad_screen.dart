@@ -1,63 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:gospel_at_flutter/gospel_at_flutter.dart';
-import 'package:gospel_at_flutter/ui/screens/rad/cubit/rad_cubit.dart';
 
 class RadScreen extends StatelessWidget {
-  const RadScreen({super.key});
+  const RadScreen({
+    super.key,
+    this.name,
+  });
+
+  final String? name;
+
+  RadScenario get scenario {
+    final name = (this.name ?? RadScenario.HTML_EDITOR.name).toLowerCase();
+    return RadScenario.values
+        .firstWhere((element) => element.name.toLowerCase() == name, orElse: () => RadScenario.HTML_EDITOR);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         color: Consts.color,
-        child: BlocProvider<RadCubit>(
-          create: (context) => RadCubit()..initialize(),
-          child: BlocBuilder<RadCubit, RadState>(
-            builder: (context, state) {
-              final controller = HtmlTextEditingController(
-                style: const TextStyle(color: Colors.black),
-                anchorStyle: const TextStyle(color: Colors.blue),
-              );
-              controller.text = state.htmlInput;
-              return TextField(
-                controller: controller,
-                maxLines: null,
-                expands: true,
-                keyboardType: TextInputType.multiline,
-              );
-
-              /// GIFS RAD:
-              // final gif = state.gif;
-              // return gif.isEmpty
-              //     ? Align(
-              //         alignment: Alignment.center,
-              //         child: Padding(
-              //           padding: EdgeInsets.all(Consts.padding),
-              //           child: Builder(
-              //             builder: (context) => MaterialButton(
-              //               child: const Icon(
-              //                 Icons.play_arrow,
-              //                 color: Colors.black,
-              //                 size: Consts.fieldsBoxSize,
-              //               ),
-              //               onPressed: () async => context.read<RadCubit>().next(),
-              //             ),
-              //           ),
-              //         ),
-              //       )
-              //     : Gif(
-              //         key: UniqueKey(),
-              //         images: gif,
-              //         width: MediaQuery.of(context).size.width,
-              //         height: MediaQuery.of(context).size.height,
-              //         passpartout: true,
-              //         fit: BoxFit.fitWidth,
-              //         callback: () => context.read<RadCubit>().hide(),
-              //       );
-            },
-          ),
-        ),
+        child: Consts.enableRad
+            ? switch (scenario) {
+                RadScenario.GIF => const GifRadScreen(),
+                _ => const HtmlRadScreen(),
+              }
+            : DenyWidget(),
       ),
     );
+  }
+}
+
+class DenyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Expanded(child: Text('Nothing here'));
   }
 }

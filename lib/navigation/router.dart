@@ -26,8 +26,10 @@ GoRouter createRouter() => GoRouter(
               builder: (context, state) => const ImportantScreen(),
             ),
             GoRoute(
-              path: Consts.pathToRad,
-              builder: (context, state) => const RadScreen(),
+              path: '${Consts.pathToRad}/:name',
+              builder: (context, state) => RadScreen(
+                name: state.pathParameters["name"],
+              ),
             ),
           ],
         ),

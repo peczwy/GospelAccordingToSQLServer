@@ -84,7 +84,7 @@ class _DispatcherContent extends StatelessWidget {
             DispatcherItem(
               title: 'R&D',
               image: AssetImage('assets/images/icons/ic_rad.png'),
-              path: Consts.pathToRad,
+              path: '${Consts.pathToRad}/x',
             ),
         ],
       ),
