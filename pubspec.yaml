@@ -67,6 +67,7 @@ flutter:
    - assets/
    - assets/data/
    - assets/data/metadata/
+   - assets/data/metadata/types/
    - assets/data/other/
    - assets/data/sqls/
    - assets/data/sqls/dev/

@@ -1,0 +1,40 @@
+{
+  "sqls": [
+    {
+      "key": "opened_transactions",
+      "title": "Opened transactions",
+      "type": "operations",
+      "description": "Checks opened transactions in Server Instance",
+      "sql_file": "assets/data/sqls/ops/opened_transactions_1.sql"
+    },
+    {
+      "key": "size",
+      "title": "Check tables size",
+      "type": "operations",
+      "description": "Checks tables metadata",
+      "sql_file": "assets/data/sqls/ops/size_1.sql",
+      "source": "https://stackoverflow.com/questions/7892334/get-size-of-all-tables-in-database"
+    },
+    {
+      "key": "stats",
+      "title": "Check statistics",
+      "type": "operations",
+      "description": "Checks statistics metadata",
+      "sql_file": "assets/data/sqls/ops/stats_1.sql"
+    },
+    {
+      "key": "stats_remix_1",
+      "title": "Check statistics (Views remix)",
+      "type": "operations",
+      "description": "Check statistics of tables that are being used in some view",
+      "sql_file": "assets/data/sqls/ops/stats_view_remix_1.sql"
+    },
+    {
+      "key": "waits",
+      "title": "Check waits",
+      "type": "operations",
+      "description": "Checks waits",
+      "sql_file": "assets/data/sqls/ops/waits_1.sql"
+    }
+  ]
+}

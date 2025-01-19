@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class Consts {
   static const String title = 'Gospel According To SQL';
-  static const bool enableRad = true;
+  static const bool enableRad = false;
   static int get gifsCount => 7;
 
   static const Color color = Color.fromARGB(255, 84, 255, 13);
@@ -14,6 +14,9 @@ class Consts {
   static const String pathToPosters = '/posters';
   static const String pathToImportant = '/important';
   static const String pathToRad = '/rad';
+  static const String commentRegex = r'--.+';
+  static const String SQLRegex =
+      r'(?<=\W|^)(SELECT|FROM|WHERE|ON|JOIN|AND|OR|GROUP|BY|HAVING|ORDER|INNER|OUTER|LEFT|RIGHT|JOIN|IF|EXISTS|NOT|CREATE|UPDATE|DELETE|INDEX|GO|GOTO|DBCC|ALTER|DROP|WITH|AS|CROSS|APPLY|DATABASE|SET|WITH|DECLARE|UNION|INTERSECT|EXCEPT|ALL|INSERT|PRIMARY|FOREIGN|KEY|UNIQUE|CONSTRAINT|BEGIN|END|TRY|CATCH|TABLE|VIEW|ADD|REFERENCES|USE|ASC|DESC)(?=\W|$)';
   static const String importantUrl =
       'https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1';
 

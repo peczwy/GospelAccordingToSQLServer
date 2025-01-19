@@ -1,0 +1,11 @@
+{
+  "sqls": [
+    {
+      "key": "rcsi",
+      "title": "RCSI fragmentation",
+      "type": "tests",
+      "description": "Checks the fragmentation of the RCSI-enabled database",
+      "sql_file": "assets/data/sqls/tests/rcsi_frag.sql"
+    }
+  ]
+}

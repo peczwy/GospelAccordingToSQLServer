@@ -34,6 +34,6 @@ class RadScreen extends StatelessWidget {
 class DenyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Expanded(child: Text('Nothing here'));
+    return Center(child: const Expanded(child: Text('Nothing here')));
   }
 }

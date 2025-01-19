@@ -69,7 +69,7 @@ class GifCubit extends Cubit<int> {
     this.callback,
   }) : super(0);
 
-  late final int fps = Random().nextInt(32) + 16;
+  late final int fps = Random().nextInt(24) + 8;
 
   late final int sleep = 1000 ~/ fps;
 

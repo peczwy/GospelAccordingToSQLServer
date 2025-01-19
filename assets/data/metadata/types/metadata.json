@@ -1,0 +1,11 @@
+{
+  "sqls": [
+    {
+      "key": "metadata_views_1",
+      "title": "VIEW - tabel references",
+      "type": "metadata",
+      "description": "Obtains metadata for VIEW. It includes columns, referenced tables and definition. Useful in case of debugging lock issues when waiting transaction concerns some view.",
+      "sql_file": "assets/data/sqls/dev/metadata_views_1.sql"
+    }
+  ]
+}

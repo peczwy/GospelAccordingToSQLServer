@@ -16,6 +16,8 @@ export 'ui/screens/dispatcher/cubit/dispatcher_cubit.dart';
 export 'ui/screens/dispatcher/dispatcher_item.dart';
 export 'ui/screens/dispatcher/dispatcher_screen.dart';
 export 'ui/screens/gospel/cubit/gospel_cubit.dart';
+export 'ui/screens/gospel/gospel_content.dart';
+export 'ui/screens/gospel/gospel_navigation.dart';
 export 'ui/screens/gospel/gospel_screen.dart';
 export 'ui/screens/important/important_screen.dart';
 export 'ui/screens/posters/cubit/posters_cubit.dart';

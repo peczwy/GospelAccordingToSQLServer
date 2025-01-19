@@ -1,0 +1,32 @@
+{
+  "sqls": [
+    {
+      "key": "create_index",
+      "type": "development",
+      "title": "Create index",
+      "description": "SQL to create index",
+      "sql": "CREATE INDEX @name ON @schema.@table(@columns)"
+    },
+    {
+      "key": "buffer_clean",
+      "type": "development",
+      "title": "Buffer Clean",
+      "description": "The most important script",
+      "sql": "DBCC DROPCLEANBUFFERS\nGO\n\nDBCC FREEPROCCACHE\nGO"
+    },
+    {
+      "key": "safe_delete",
+      "title": "Safe delete",
+      "type": "development",
+      "description": "Safely deletes the content of the table - without thrashing the system log",
+      "sql_file": "assets/data/sqls/dev/delete_1.sql"
+    },
+    {
+      "key": "recreate_clustered_index",
+      "title": "Clustered Index recreate",
+      "type": "development",
+      "description": "Recreates the clustered index of the table",
+      "sql_file": "assets/data/sqls/dev/template_recreate_clustered_index_1.sql"
+    }
+  ]
+}
