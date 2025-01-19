@@ -20,6 +20,13 @@
       "type": "metadata",
       "description": "Obtains metadata for INDEX. It includes general information about the index (if it's PK/UNIQUE constraint based)",
       "sql_file": "assets/data/sqls/metadata/metadata_index_1.sql"
+    ,
+    {
+      "key": "metadata_index_2",
+      "title": "INDEX - column info",
+      "type": "metadata",
+      "description": "Obtains metadata for INDEX. It dumps information about the ordinals of the column.",
+      "sql_file": "assets/data/sqls/metadata/metadata_index_2.sql"
     }
   ]
 }
