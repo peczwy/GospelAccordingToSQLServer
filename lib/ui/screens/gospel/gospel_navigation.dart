@@ -27,6 +27,7 @@ class GospelNavigation extends StatelessWidget {
             ),
             Builder(builder: (_) {
               final entries = navigation[type] ?? [];
+              entries.sort((e1, e2) => e1.key.compareTo(e2.key));
               return SliverList.separated(
                 itemCount: entries.length,
                 itemBuilder: (context, index) => ListTile(

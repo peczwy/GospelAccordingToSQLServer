@@ -5,14 +5,14 @@
       "type": "development",
       "title": "Create index",
       "description": "SQL to safely and idempotently (re)create NONCLUSTERED indexes. The check itself can be improved to use only OBJECT_ID, however I'm a litte paranoid and I like to check name also.",
-      "sql": "assets/data/sqls/dev/index_1.sql"
+      "sql_file": "assets/data/sqls/dev/index_1.sql"
     },
     {
       "key": "index_dynamic_drop",
       "type": "development",
       "title": "Dynamic drop of indexes",
       "description": "Script to perform `hard reset` of the set of the tables. It removes all the indexes from the table. Be wary that active FOREIGN KEY constraints may influence the execution of this script.",
-      "sql": "assets/data/sqls/dev/index_dynamic_drop.sql"
+      "sql_file": "assets/data/sqls/dev/index_dynamic_drop.sql"
     },
     {
       "key": "buffer_clean",
