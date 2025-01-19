@@ -2,10 +2,24 @@
   "sqls": [
     {
       "key": "metadata_views_1",
-      "title": "VIEW - tabel references",
+      "title": "VIEW - table references",
       "type": "metadata",
       "description": "Obtains metadata for VIEW. It includes columns, referenced tables and definition. Useful in case of debugging lock issues when waiting transaction concerns some view.",
-      "sql_file": "assets/data/sqls/dev/metadata_views_1.sql"
+      "sql_file": "assets/data/sqls/metadata/metadata_views_1.sql"
+    },
+    {
+      "key": "metadata_fk_1",
+      "title": "FOREIGN KEY - table references",
+      "type": "metadata",
+      "description": "Obtains metadata for FOREIGN KEYS. It includes name of the referenced table and the nature of the constraints.",
+      "sql_file": "assets/data/sqls/metadata/metadata_foreign_keys_1.sql"
+    },
+    {
+      "key": "metadata_index_1",
+      "title": "INDEX - general info",
+      "type": "metadata",
+      "description": "Obtains metadata for INDEX. It includes general information about the index (if it's PK/UNIQUE constraint based)",
+      "sql_file": "assets/data/sqls/metadata/metadata_index_1.sql"
     }
   ]
 }

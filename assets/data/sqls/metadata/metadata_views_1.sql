@@ -10,7 +10,7 @@ FROM
 	INNER JOIN sys.sql_modules m ON m.object_id = v.object_id
 	LEFT JOIN INFORMATION_SCHEMA.VIEW_TABLE_USAGE vtu ON vtu.VIEW_NAME = v.name
 	LEFT JOIN INFORMATION_SCHEMA.VIEW_COLUMN_USAGE vcu ON vcu.VIEW_NAME = v.name AND vtu.TABLE_NAME = vcu.TABLE_NAME
-WHERE
-	s.name = 'dbo'
+-- WHERE
+	-- s.name = 'dbo'
 	-- AND vtu.TABLE_NAME = @tableName
 	-- AND v.name = '@viewName';

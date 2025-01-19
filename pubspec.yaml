@@ -71,6 +71,7 @@ flutter:
    - assets/data/other/
    - assets/data/sqls/
    - assets/data/sqls/dev/
+   - assets/data/sqls/metadata/
    - assets/data/sqls/ops/
    - assets/data/sqls/tests/
    - assets/images/
