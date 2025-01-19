@@ -4,14 +4,21 @@
       "key": "create_index",
       "type": "development",
       "title": "Create index",
-      "description": "SQL to create index",
-      "sql": "CREATE INDEX @name ON @schema.@table(@columns)"
+      "description": "SQL to safely and idempotently (re)create NONCLUSTERED indexes. The check itself can be improved to use only OBJECT_ID, however I'm a litte paranoid and I like to check name also.",
+      "sql": "assets/data/sqls/dev/index_1.sql"
+    },
+    {
+      "key": "index_dynamic_drop",
+      "type": "development",
+      "title": "Dynamic drop of indexes",
+      "description": "Script to perform `hard reset` of the set of the tables. It removes all the indexes from the table. Be wary that active FOREIGN KEY constraints may influence the execution of this script.",
+      "sql": "assets/data/sqls/dev/index_dynamic_drop.sql"
     },
     {
       "key": "buffer_clean",
       "type": "development",
       "title": "Buffer Clean",
-      "description": "The most important script",
+      "description": "The most important script during the process of <i>hammering</i> bugs. Use it to clear the state of SQL SERVER memory and force it to generate new executions plans (due to the cleanup of the procedure cache) for Stored Procedures and perform the physical IO (due to cleanup of the buffers)",
       "sql": "DBCC DROPCLEANBUFFERS\nGO\n\nDBCC FREEPROCCACHE\nGO"
     },
     {
@@ -25,7 +32,7 @@
       "key": "recreate_clustered_index",
       "title": "Clustered Index recreate",
       "type": "development",
-      "description": "Recreates the clustered index of the table",
+      "description": "Recreates the clustered index of the table. Be wary that active FOREIGN KEY constraints may influence the execution of this script.",
       "sql_file": "assets/data/sqls/dev/template_recreate_clustered_index_1.sql"
     }
   ]
