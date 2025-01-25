@@ -65,7 +65,6 @@ class _DragWidget extends StatelessWidget {
               ),
               child: DragTarget(
                 builder: (context, candidateData, rejectedData) {
-                  print(candidateData);
                   return Container(
                     width: 100,
                     height: 100,
