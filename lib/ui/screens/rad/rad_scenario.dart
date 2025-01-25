@@ -1,1 +1,1 @@
-enum RadScenario { GIF, HTML_EDITOR }
+enum RadScenario { GIF, HTML_EDITOR, DRAG }

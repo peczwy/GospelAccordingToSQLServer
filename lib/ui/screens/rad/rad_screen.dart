@@ -10,9 +10,11 @@ class RadScreen extends StatelessWidget {
   final String? name;
 
   RadScenario get scenario {
-    final name = (this.name ?? RadScenario.HTML_EDITOR.name).toLowerCase();
-    return RadScenario.values
-        .firstWhere((element) => element.name.toLowerCase() == name, orElse: () => RadScenario.HTML_EDITOR);
+    final name = (this.name ?? RadScenario.DRAG.name).toLowerCase();
+    return RadScenario.values.firstWhere(
+      (element) => element.name.toLowerCase() == name,
+      orElse: () => RadScenario.DRAG,
+    );
   }
 
   @override
@@ -23,6 +25,7 @@ class RadScreen extends StatelessWidget {
         child: Consts.enableRad
             ? switch (scenario) {
                 RadScenario.GIF => const GifRadScreen(),
+                RadScenario.DRAG => const DragRadScreen(),
                 _ => const HtmlRadScreen(),
               }
             : DenyWidget(),

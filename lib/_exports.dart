@@ -24,6 +24,7 @@ export 'ui/screens/posters/cubit/posters_cubit.dart';
 export 'ui/screens/posters/posters_screen.dart';
 export 'ui/screens/rad/rad_scenario.dart';
 export 'ui/screens/rad/rad_screen.dart';
+export 'ui/screens/rad/scenarios/drag_rad_screen.dart';
 export 'ui/screens/rad/scenarios/gif_rad_screen.dart';
 export 'ui/screens/rad/scenarios/html_rad_screen.dart';
 export 'ui/widgets/gif/gif.dart';
