@@ -4,7 +4,7 @@ part 'article_entry.freezed.dart';
 part 'article_entry.g.dart';
 
 @freezed
-class ArticleEntry with _$ArticleEntry {
+sealed class ArticleEntry with _$ArticleEntry {
   const ArticleEntry._();
 
   const factory ArticleEntry({

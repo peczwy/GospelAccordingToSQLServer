@@ -8,6 +8,7 @@ Site is available at: https://peczwy.github.io/GospelAccordingToSQLServer/
 ## Compiling
 
 Well... the site compiles as any flutter project.
+Currently using: Flutter 3.32.1
 
 ## Generating models
 `dart run build_runner build`

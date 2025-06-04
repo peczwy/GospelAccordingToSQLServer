@@ -4,7 +4,7 @@ part 'article_repository.freezed.dart';
 part 'article_repository.g.dart';
 
 @freezed
-class ArticleRepository with _$ArticleRepository {
+sealed class ArticleRepository with _$ArticleRepository {
   const factory ArticleRepository({
     required List<ArticleEntry> articles,
   }) = _ArticleRepository;

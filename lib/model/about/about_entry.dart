@@ -4,7 +4,7 @@ part 'about_entry.freezed.dart';
 part 'about_entry.g.dart';
 
 @freezed
-class AboutEntry with _$AboutEntry {
+sealed class AboutEntry with _$AboutEntry {
   const factory AboutEntry({
     String? emoji,
     required String title,

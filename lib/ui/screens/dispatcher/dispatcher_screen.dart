@@ -13,38 +13,40 @@ class DispatcherScreen extends StatelessWidget {
           create: (context) => DispatcherCubit()..initialize(),
           child: Center(
             child: BlocBuilder<DispatcherCubit, DispatcherState>(
-              builder: (context, state) => state.when(
-                initial: (opacity) => AnimatedOpacity(
-                  opacity: opacity,
-                  duration: Consts.fadeLinger,
-                  child: Image.asset(
-                    'assets/images/eye.png',
-                    width: Consts.posterWidth,
-                    height: Consts.posterHeight,
-                  ),
-                ),
-                ready: () => _DispatcherContent(),
-                willRoute: (path, gif) {
-                  final cubit = context.read<DispatcherCubit>();
-                  if (gif.isEmpty) {
-                    context.go(path);
-                    cubit.ready();
-                    return const CircularProgressIndicator();
-                  }
-                  return Gif(
-                    key: UniqueKey(),
-                    images: gif,
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    passpartout: true,
-                    fit: BoxFit.fitWidth,
-                    callback: () {
-                      context.go(path);
-                      cubit.ready();
+              builder: (context, state) => switch (state) {
+                WillRoute(:final path, :final gif) => Builder(
+                    builder: (context) {
+                      final cubit = context.read<DispatcherCubit>();
+                      if (gif.isEmpty) {
+                        context.go(path);
+                        cubit.ready();
+                        return const CircularProgressIndicator();
+                      }
+                      return Gif(
+                        key: UniqueKey(),
+                        images: gif,
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        passpartout: true,
+                        fit: BoxFit.fitWidth,
+                        callback: () {
+                          context.go(path);
+                          cubit.ready();
+                        },
+                      );
                     },
-                  );
-                },
-              ),
+                  ),
+                Initial(:final opacity) => AnimatedOpacity(
+                    opacity: opacity,
+                    duration: Consts.fadeLinger,
+                    child: Image.asset(
+                      'assets/images/eye.png',
+                      width: Consts.posterWidth,
+                      height: Consts.posterHeight,
+                    ),
+                  ),
+                Ready() => _DispatcherContent(),
+              },
             ),
           ),
         ),
