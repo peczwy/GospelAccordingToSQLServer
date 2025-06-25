@@ -26853,7 +26853,7 @@ $S:3}
 A.atN.prototype={
 $1(a){var s=A.eA().b
 s=s==null?null:s.canvasKitBaseUrl
-return(s==null?"https://www.gstatic.com/flutter-canvaskit/1425e5e9ec5eeb4f225c401d8db69b860e0fde9a/":s)+a},
+return(s==null?"https://www.gstatic.com/flutter-canvaskit/8cd19e509d6bece8ccd74aef027c4ca947363095/":s)+a},
 $S:73}
 A.a1R.prototype={
 eJ(a,b){var s,r=this.a
@@ -85164,7 +85164,7 @@ while(true)switch(s){case 0:h=t.N
 g=A.A(h,t.nV)
 f=A.A(h,t.ON)
 h=q.x,p=t.hK,o=0
-case 2:if(!(o<4)){s=4
+case 2:if(!(o<5)){s=4
 break}n=h[o]
 e=J
 d=A
@@ -85281,7 +85281,7 @@ A.u4.prototype={
 M(a){var s=null,r=t.bs
 return A.vl(s,A.fG(A.mP(A.p8(new A.a76(this),r,t.CQ),new A.a77(),r),B.A,B.bG,s,s,s,s,s))}}
 A.a77.prototype={
-$1(a){var s=new A.pO(A.c(["development.json","metadata.json","operations.json","tests.json"],t.s),B.cA,new A.oz(B.a8k,B.a8l))
+$1(a){var s=new A.pO(A.c(["development.json","metadata.json","operations.json","querystore.json","tests.json"],t.s),B.cA,new A.oz(B.a8k,B.a8l))
 s.c2(0)
 return s},
 $S:541}

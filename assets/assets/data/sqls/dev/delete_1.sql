@@ -1,4 +1,0 @@
-DoMe:
-	DELETE TOP (10000000) t
-	FROM Table t 
-IF @@ROWCOUNT > 0 GOTO DoMe
