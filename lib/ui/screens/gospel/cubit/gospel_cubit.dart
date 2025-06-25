@@ -9,7 +9,7 @@ part 'gospel_state.dart';
 class GospelCubit extends Cubit<GospelState> {
   GospelCubit() : super(GospelState());
 
-  final files = ['development.json', 'metadata.json', 'operations.json', 'tests.json'];
+  final files = ['development.json', 'metadata.json', 'operations.json', 'querystore.json', 'tests.json'];
 
   Future<void> initialize() async {
     final navigation = <String, List<SQLEntry>>{};

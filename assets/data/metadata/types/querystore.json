@@ -1,0 +1,11 @@
+{
+  "sqls": [
+    {
+      "key": "querystore_dump_1",
+      "type": "querystore",
+      "title": "Dump Violations",
+      "description": "Dumps the top violations from the querystore with concrete parameters. Kudos to Peter for that SQL.",
+      "sql_file": "assets/data/sqls/querystore/query_store_dump_1.sql"
+    }
+  ]
+}

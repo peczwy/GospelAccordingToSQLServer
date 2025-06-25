@@ -22,6 +22,13 @@
       "sql": "DBCC DROPCLEANBUFFERS\nGO\n\nDBCC FREEPROCCACHE\nGO"
     },
     {
+      "key": "io_statistics_on",
+      "type": "development",
+      "title": "Turn on the IO statistics",
+      "description": "Turns on collections of the IO statistics. I always forget the order of the keywords",
+      "sql": "SET STATISTICS IO ON"
+    },
+    {
       "key": "safe_delete",
       "title": "Safe delete",
       "type": "development",
